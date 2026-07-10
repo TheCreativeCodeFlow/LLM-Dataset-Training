@@ -1,0 +1,48 @@
+{
+  "total_conversations": 210,
+  "topic_counts": {
+    "Arrays": 10,
+    "Strings": 10,
+    "Hash Maps": 10,
+    "Stack": 10,
+    "Queue": 10,
+    "Linked List": 10,
+    "Binary Tree": 10,
+    "BST": 10,
+    "Heap": 10,
+    "Graph": 10,
+    "Trie": 10,
+    "Binary Search": 10,
+    "Sliding Window": 10,
+    "Prefix Sum": 10,
+    "Two Pointers": 10,
+    "Recursion": 10,
+    "Backtracking": 10,
+    "Dynamic Programming": 10,
+    "Greedy": 10,
+    "Union Find": 10,
+    "Bit Manipulation": 10
+  },
+  "conversation_type_counts": {
+    "concept explanation": 21,
+    "pattern recognition": 21,
+    "beginner misconceptions": 21,
+    "wrong solution review": 21,
+    "hint progression": 21,
+    "interview coaching": 21,
+    "complexity explanation": 21,
+    "edge-case thinking": 21,
+    "debugging mindset": 21,
+    "code review": 21
+  },
+  "difficulty_distribution": {
+    "easy": 42,
+    "medium": 84,
+    "hard": 84
+  },
+  "student_level_distribution": {
+    "beginner": 42,
+    "intermediate": 84,
+    "advanced": 84
+  }
+}

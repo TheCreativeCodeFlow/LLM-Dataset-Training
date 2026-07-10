@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "bench_0",
+    "topic": "Arrays",
+    "difficulty": "medium",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain how 2D arrays are stored in memory."}
+    ]
+  },
+  {
+    "id": "bench_1",
+    "topic": "Arrays",
+    "difficulty": "hard",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain the concept of prefix sums in arrays."}
+    ]
+  },
+  {
+    "id": "bench_2",
+    "topic": "Arrays",
+    "difficulty": "medium",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I'm trying to find duplicate elements in an array. Can you give me a hint?"}
+    ]
+  },
+  {
+    "id": "bench_3",
+    "topic": "Arrays",
+    "difficulty": "hard",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I need to rotate an array. What's a good hint?"}
+    ]
+  },
+  {
+    "id": "bench_4",
+    "topic": "Arrays",
+    "difficulty": "medium",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My array index is out of bounds in this loop. Why does it happen?"}
+    ]
+  },
+  {
+    "id": "bench_5",
+    "topic": "Arrays",
+    "difficulty": "hard",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My array is not reversing properly in-place. What is the bug?"}
+    ]
+  },
+  {
+    "id": "bench_6",
+    "topic": "Arrays",
+    "difficulty": "medium",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the time complexity of sorting an array of size N?"}
+    ]
+  },
+  {
+    "id": "bench_7",
+    "topic": "Arrays",
+    "difficulty": "hard",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the space complexity of copying an array?"}
+    ]
+  },
+  {
+    "id": "bench_8",
+    "topic": "Arrays",
+    "difficulty": "medium",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Can you optimize array rotation to O(1) extra space?"}
+    ]
+  },
+  {
+    "id": "bench_9",
+    "topic": "Arrays",
+    "difficulty": "hard",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How would you find the maximum subarray sum in O(N) time?"}
+    ]
+  },
+  {
+    "id": "bench_10",
+    "topic": "Strings",
+    "difficulty": "medium",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain the difference between mutable and immutable strings."}
+    ]
+  },
+  {
+    "id": "bench_11",
+    "topic": "Strings",
+    "difficulty": "hard",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How does a Trie structure represent strings?"}
+    ]
+  },
+  {
+    "id": "bench_12",
+    "topic": "Strings",
+    "difficulty": "medium",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I need to check if a string is a palindrome. Can you give me a hint?"}
+    ]
+  },
+  {
+    "id": "bench_13",
+    "topic": "Strings",
+    "difficulty": "hard",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I need to find the first non-repeating character. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_14",
+    "topic": "Strings",
+    "difficulty": "medium",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My string concatenation is very slow in Python. Why?"}
+    ]
+  },
+  {
+    "id": "bench_15",
+    "topic": "Strings",
+    "difficulty": "hard",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My string slicing has an off-by-one index error. Can you find the bug?"}
+    ]
+  },
+  {
+    "id": "bench_16",
+    "topic": "Strings",
+    "difficulty": "medium",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the time complexity of comparing two strings of length N?"}
+    ]
+  },
+  {
+    "id": "bench_17",
+    "topic": "Strings",
+    "difficulty": "hard",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the space complexity of a suffix tree?"}
+    ]
+  },
+  {
+    "id": "bench_18",
+    "topic": "Strings",
+    "difficulty": "medium",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Can we find the longest palindromic substring in O(N^2)?"}
+    ]
+  },
+  {
+    "id": "bench_19",
+    "topic": "Strings",
+    "difficulty": "hard",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What if the input strings are too large to fit in memory?"}
+    ]
+  },
+  {
+    "id": "bench_20",
+    "topic": "Hash Maps",
+    "difficulty": "medium",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain how hash collisions are resolved."}
+    ]
+  },
+  {
+    "id": "bench_21",
+    "topic": "Hash Maps",
+    "difficulty": "hard",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the load factor of a hash table?"}
+    ]
+  },
+  {
+    "id": "bench_22",
+    "topic": "Hash Maps",
+    "difficulty": "medium",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I'm trying to find two numbers that add up to a target. Can you give me a hint?"}
+    ]
+  },
+  {
+    "id": "bench_23",
+    "topic": "Hash Maps",
+    "difficulty": "hard",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Give me a hint to detect duplicate elements in a stream."}
+    ]
+  },
+  {
+    "id": "bench_24",
+    "topic": "Hash Maps",
+    "difficulty": "medium",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My hashmap lookup is returning None even though the key should exist. Why?"}
+    ]
+  },
+  {
+    "id": "bench_25",
+    "topic": "Hash Maps",
+    "difficulty": "hard",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Why is my custom object key causing slow lookups in python dictionary?"}
+    ]
+  },
+  {
+    "id": "bench_26",
+    "topic": "Hash Maps",
+    "difficulty": "medium",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the amortized complexity of hashmap operations?"}
+    ]
+  },
+  {
+    "id": "bench_27",
+    "topic": "Hash Maps",
+    "difficulty": "hard",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the worst-case space complexity of a hashmap?"}
+    ]
+  },
+  {
+    "id": "bench_28",
+    "topic": "Hash Maps",
+    "difficulty": "medium",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How would you design a thread-safe hash map?"}
+    ]
+  },
+  {
+    "id": "bench_29",
+    "topic": "Hash Maps",
+    "difficulty": "hard",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What if hash collisions make operations O(N)?"}
+    ]
+  },
+  {
+    "id": "bench_30",
+    "topic": "Linked Lists",
+    "difficulty": "medium",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain the difference between a singly linked list and a doubly linked list."}
+    ]
+  },
+  {
+    "id": "bench_31",
+    "topic": "Linked Lists",
+    "difficulty": "hard",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain how to detect loops in a linked list."}
+    ]
+  },
+  {
+    "id": "bench_32",
+    "topic": "Linked Lists",
+    "difficulty": "medium",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I need to reverse a linked list. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_33",
+    "topic": "Linked Lists",
+    "difficulty": "hard",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How do I find the middle of a linked list in one pass? Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_34",
+    "topic": "Linked Lists",
+    "difficulty": "medium",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My loop detection code is stuck in an infinite loop. Why?"}
+    ]
+  },
+  {
+    "id": "bench_35",
+    "topic": "Linked Lists",
+    "difficulty": "hard",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My linked list reverse method loses the tail node. What is the bug?"}
+    ]
+  },
+  {
+    "id": "bench_36",
+    "topic": "Linked Lists",
+    "difficulty": "medium",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the complexity of inserting a node at the head vs tail?"}
+    ]
+  },
+  {
+    "id": "bench_37",
+    "topic": "Linked Lists",
+    "difficulty": "hard",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the space complexity of recursive linked list traversal?"}
+    ]
+  },
+  {
+    "id": "bench_38",
+    "topic": "Linked Lists",
+    "difficulty": "medium",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Can you reverse a linked list in O(1) auxiliary space?"}
+    ]
+  },
+  {
+    "id": "bench_39",
+    "topic": "Linked Lists",
+    "difficulty": "hard",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How would you merge two sorted linked lists without extra memory?"}
+    ]
+  },
+  {
+    "id": "bench_40",
+    "topic": "Trees",
+    "difficulty": "medium",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain the properties of a Binary Search Tree (BST)."}
+    ]
+  },
+  {
+    "id": "bench_41",
+    "topic": "Trees",
+    "difficulty": "hard",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the difference between BFS and DFS tree traversal?"}
+    ]
+  },
+  {
+    "id": "bench_42",
+    "topic": "Trees",
+    "difficulty": "medium",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I want to find the lowest common ancestor of two nodes in a BST. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_43",
+    "topic": "Trees",
+    "difficulty": "hard",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I need to check if a binary tree is balanced. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_44",
+    "topic": "Trees",
+    "difficulty": "medium",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My post-order traversal function is printing nodes in the wrong order. Why?"}
+    ]
+  },
+  {
+    "id": "bench_45",
+    "topic": "Trees",
+    "difficulty": "hard",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My tree height function causes a stack overflow. What is the bug?"}
+    ]
+  },
+  {
+    "id": "bench_46",
+    "topic": "Trees",
+    "difficulty": "medium",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the worst-case search complexity in a BST?"}
+    ]
+  },
+  {
+    "id": "bench_47",
+    "topic": "Trees",
+    "difficulty": "hard",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the space complexity of tree BFS traversal?"}
+    ]
+  },
+  {
+    "id": "bench_48",
+    "topic": "Trees",
+    "difficulty": "medium",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Can we implement tree traversal without recursion or call stack?"}
+    ]
+  },
+  {
+    "id": "bench_49",
+    "topic": "Trees",
+    "difficulty": "hard",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How would you serialize and deserialize a binary tree?"}
+    ]
+  },
+  {
+    "id": "bench_50",
+    "topic": "Graphs",
+    "difficulty": "medium",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain the difference between an adjacency list and an adjacency matrix."}
+    ]
+  },
+  {
+    "id": "bench_51",
+    "topic": "Graphs",
+    "difficulty": "hard",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is topological sorting in a DAG?"}
+    ]
+  },
+  {
+    "id": "bench_52",
+    "topic": "Graphs",
+    "difficulty": "medium",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I want to find the shortest path in a graph. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_53",
+    "topic": "Graphs",
+    "difficulty": "hard",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How do I detect a cycle in an undirected graph? Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_54",
+    "topic": "Graphs",
+    "difficulty": "medium",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My DFS traversal is visiting the same node multiple times. Why?"}
+    ]
+  },
+  {
+    "id": "bench_55",
+    "topic": "Graphs",
+    "difficulty": "hard",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My Dijkstra's implementation is not finding the shortest path on negative weights. Why?"}
+    ]
+  },
+  {
+    "id": "bench_56",
+    "topic": "Graphs",
+    "difficulty": "medium",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the complexity of BFS on a graph with V vertices and E edges?"}
+    ]
+  },
+  {
+    "id": "bench_57",
+    "topic": "Graphs",
+    "difficulty": "hard",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the space complexity of DFS call stack?"}
+    ]
+  },
+  {
+    "id": "bench_58",
+    "topic": "Graphs",
+    "difficulty": "medium",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How would you handle dynamic edge updates in a shortest path graph?"}
+    ]
+  },
+  {
+    "id": "bench_59",
+    "topic": "Graphs",
+    "difficulty": "hard",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What if the graph vertices cannot fit on a single server?"}
+    ]
+  },
+  {
+    "id": "bench_60",
+    "topic": "Binary Search",
+    "difficulty": "medium",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain how binary search splits the search space."}
+    ]
+  },
+  {
+    "id": "bench_61",
+    "topic": "Binary Search",
+    "difficulty": "hard",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "When can binary search be applied on non-sorted inputs?"}
+    ]
+  },
+  {
+    "id": "bench_62",
+    "topic": "Binary Search",
+    "difficulty": "medium",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I need to find the square root of an integer. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_63",
+    "topic": "Binary Search",
+    "difficulty": "hard",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I need to find the peak element in an unsorted array. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_64",
+    "topic": "Binary Search",
+    "difficulty": "medium",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My binary search is stuck in an infinite loop. Why?"}
+    ]
+  },
+  {
+    "id": "bench_65",
+    "topic": "Binary Search",
+    "difficulty": "hard",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My index midpoint calculation is causing integer overflow. How do I fix it?"}
+    ]
+  },
+  {
+    "id": "bench_66",
+    "topic": "Binary Search",
+    "difficulty": "medium",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the complexity of binary search?"}
+    ]
+  },
+  {
+    "id": "bench_67",
+    "topic": "Binary Search",
+    "difficulty": "hard",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the space complexity of recursive binary search?"}
+    ]
+  },
+  {
+    "id": "bench_68",
+    "topic": "Binary Search",
+    "difficulty": "medium",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Can we apply binary search on a linked list?"}
+    ]
+  },
+  {
+    "id": "bench_69",
+    "topic": "Binary Search",
+    "difficulty": "hard",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How would you find a target in a rotated sorted array in O(log N) time?"}
+    ]
+  },
+  {
+    "id": "bench_70",
+    "topic": "Sliding Window",
+    "difficulty": "medium",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain the difference between fixed-size and variable-size sliding windows."}
+    ]
+  },
+  {
+    "id": "bench_71",
+    "topic": "Sliding Window",
+    "difficulty": "hard",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the sliding window pattern?"}
+    ]
+  },
+  {
+    "id": "bench_72",
+    "topic": "Sliding Window",
+    "difficulty": "medium",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I need to find the longest substring without repeating characters. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_73",
+    "topic": "Sliding Window",
+    "difficulty": "hard",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I want to find the maximum sum subarray of size K. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_74",
+    "topic": "Sliding Window",
+    "difficulty": "medium",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My window right pointer goes out of bounds. Why?"}
+    ]
+  },
+  {
+    "id": "bench_75",
+    "topic": "Sliding Window",
+    "difficulty": "hard",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My sliding window minimum length is incorrect on small inputs. What is the bug?"}
+    ]
+  },
+  {
+    "id": "bench_76",
+    "topic": "Sliding Window",
+    "difficulty": "medium",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the time complexity of the sliding window when nested loops are present?"}
+    ]
+  },
+  {
+    "id": "bench_77",
+    "topic": "Sliding Window",
+    "difficulty": "hard",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the space complexity of a sliding window using a set?"}
+    ]
+  },
+  {
+    "id": "bench_78",
+    "topic": "Sliding Window",
+    "difficulty": "medium",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How would you handle streaming data where window size grows dynamically?"}
+    ]
+  },
+  {
+    "id": "bench_79",
+    "topic": "Sliding Window",
+    "difficulty": "hard",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Can you solve the sliding window maximum problem in O(N) time?"}
+    ]
+  },
+  {
+    "id": "bench_80",
+    "topic": "Dynamic Programming",
+    "difficulty": "medium",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain the difference between Memoization and Tabulation."}
+    ]
+  },
+  {
+    "id": "bench_81",
+    "topic": "Dynamic Programming",
+    "difficulty": "hard",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What are the two key properties of dynamic programming?"}
+    ]
+  },
+  {
+    "id": "bench_82",
+    "topic": "Dynamic Programming",
+    "difficulty": "medium",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I need to solve the coin change problem. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_83",
+    "topic": "Dynamic Programming",
+    "difficulty": "hard",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I want to find the longest common subsequence of two strings. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_84",
+    "topic": "Dynamic Programming",
+    "difficulty": "medium",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My DP array indexing is causing negative bounds error. Why?"}
+    ]
+  },
+  {
+    "id": "bench_85",
+    "topic": "Dynamic Programming",
+    "difficulty": "hard",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My memoization key is too slow to hash. What is the bug?"}
+    ]
+  },
+  {
+    "id": "bench_86",
+    "topic": "Dynamic Programming",
+    "difficulty": "medium",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the complexity of the 0/1 knapsack problem?"}
+    ]
+  },
+  {
+    "id": "bench_87",
+    "topic": "Dynamic Programming",
+    "difficulty": "hard",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the space complexity of the Fibonacci tabulation method?"}
+    ]
+  },
+  {
+    "id": "bench_88",
+    "topic": "Dynamic Programming",
+    "difficulty": "medium",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Can we optimize the space complexity of the knapsack DP table to O(W)?"}
+    ]
+  },
+  {
+    "id": "bench_89",
+    "topic": "Dynamic Programming",
+    "difficulty": "hard",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How would you solve the edit distance problem in O(N) space?"}
+    ]
+  },
+  {
+    "id": "bench_90",
+    "topic": "Greedy",
+    "difficulty": "medium",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Explain the greedy choice property."}
+    ]
+  },
+  {
+    "id": "bench_91",
+    "topic": "Greedy",
+    "difficulty": "hard",
+    "conversation_type": "concept explanation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Why doesn't greedy always yield the global optimum?"}
+    ]
+  },
+  {
+    "id": "bench_92",
+    "topic": "Greedy",
+    "difficulty": "medium",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I need to solve the interval scheduling problem. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_93",
+    "topic": "Greedy",
+    "difficulty": "hard",
+    "conversation_type": "hint generation",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "I want to find the minimum number of coins to make change. Give me a hint."}
+    ]
+  },
+  {
+    "id": "bench_94",
+    "topic": "Greedy",
+    "difficulty": "medium",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My greedy algorithm fails on certain denominations. Why?"}
+    ]
+  },
+  {
+    "id": "bench_95",
+    "topic": "Greedy",
+    "difficulty": "hard",
+    "conversation_type": "bug diagnosis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "My sorting step in greedy scheduling has an incorrect comparator. What is the bug?"}
+    ]
+  },
+  {
+    "id": "bench_96",
+    "topic": "Greedy",
+    "difficulty": "medium",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the complexity of Huffman coding?"}
+    ]
+  },
+  {
+    "id": "bench_97",
+    "topic": "Greedy",
+    "difficulty": "hard",
+    "conversation_type": "complexity analysis",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "What is the complexity of Kruskal's MST algorithm?"}
+    ]
+  },
+  {
+    "id": "bench_98",
+    "topic": "Greedy",
+    "difficulty": "medium",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "Can you prove why the greedy choice works for interval scheduling?"}
+    ]
+  },
+  {
+    "id": "bench_99",
+    "topic": "Greedy",
+    "difficulty": "hard",
+    "conversation_type": "interview follow-up",
+    "messages": [
+      {"role": "system", "content": "You are an expert DSA tutor. Provide clear, step-by-step explanations, hints, and code reviews."},
+      {"role": "user", "content": "How would you handle fraction values in fractional knapsack?"}
+    ]
+  }
+]

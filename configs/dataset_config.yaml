@@ -1,0 +1,24 @@
+dataset:
+  source: "codeparrot/apps"
+  subset: "train"
+  splits:
+    train: 0.9
+    validation: 0.1
+
+cleaning:
+  remove_duplicates: true
+  min_length: 100
+  max_length: 4000
+  filter_languages:
+    - python
+    - cpp
+    - java
+
+transform:
+  format: "chat"
+  system_prompt: "You are an expert DSA tutor. Provide clear explanations and optimal solutions."
+  include_tags: true
+  tags:
+    - "difficulty"
+    - "topic"
+    - "algorithm"
