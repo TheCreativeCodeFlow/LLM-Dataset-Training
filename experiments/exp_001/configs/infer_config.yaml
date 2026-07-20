@@ -1,0 +1,23 @@
+model:
+  base_model: "meta-llama/Meta-Llama-3-8B-Instruct"
+  adapter_path: "./models/adapters/dsa-tutor-lora"
+  torch_dtype: "bfloat16"
+
+inference:
+  max_new_tokens: 1024
+  temperature: 0.2
+  top_p: 0.95
+  top_k: 50
+  repetition_penalty: 1.1
+  do_sample: true
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1
+
+prompt:
+  system: |
+    You are an expert DSA (Data Structures and Algorithms) tutor.
+    Provide clear, step-by-step explanations with code examples.
+    Focus on algorithmic thinking, time/space complexity, and edge cases.

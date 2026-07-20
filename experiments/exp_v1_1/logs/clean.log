@@ -1,0 +1,77 @@
+2026-07-02 21:58:53,542 [INFO] ======================================================
+2026-07-02 21:58:53,542 [INFO] Starting clean_dataset.py
+2026-07-02 21:58:53,542 [INFO] ======================================================
+2026-07-02 21:58:53,543 [INFO] Processing split 'train' from /tmp/apps_smoke_train.json
+2026-07-02 21:58:53,712 [INFO] [train] total=50, kept=31, removed=19
+2026-07-02 21:58:53,712 [INFO]   rejection/non_dsa: 18
+2026-07-02 21:58:53,712 [INFO]   rejection/duplicate: 1
+2026-07-02 21:58:53,712 [INFO] Processing split 'test' from /tmp/apps_smoke_train.json
+2026-07-02 21:58:53,790 [INFO] [test] total=50, kept=0, removed=50
+2026-07-02 21:58:53,790 [INFO]   rejection/duplicate: 32
+2026-07-02 21:58:53,790 [INFO]   rejection/non_dsa: 18
+2026-07-02 21:58:53,790 [INFO] ======================================================
+2026-07-02 21:58:53,790 [INFO] Cleaning complete.
+2026-07-02 21:58:53,790 [INFO] train: kept=31, removed=19, total=50
+2026-07-02 21:58:53,790 [INFO]   topic/dynamic_programming: 14
+2026-07-02 21:58:53,790 [INFO]   topic/strings: 11
+2026-07-02 21:58:53,790 [INFO]   topic/arrays: 5
+2026-07-02 21:58:53,790 [INFO]   topic/heaps: 1
+2026-07-02 21:58:53,791 [INFO]   difficulty/interview: 31
+2026-07-02 21:58:53,791 [INFO] test: kept=0, removed=50, total=50
+2026-07-02 21:58:53,791 [INFO] ======================================================
+2026-07-02 21:59:01,640 [INFO] ======================================================
+2026-07-02 21:59:01,640 [INFO] Starting clean_dataset.py
+2026-07-02 21:59:01,640 [INFO] ======================================================
+2026-07-02 21:59:01,640 [INFO] Processing split 'train' from data/raw/apps_train.json
+2026-07-02 22:01:29,998 [INFO] ======================================================
+2026-07-02 22:01:29,998 [INFO] Starting clean_dataset.py
+2026-07-02 22:01:29,998 [INFO] ======================================================
+2026-07-02 22:01:29,998 [INFO] Processing split 'train' from data/raw/apps_train.json
+2026-07-02 22:06:14,510 [INFO] [train] total=5000, kept=3155, removed=1845
+2026-07-02 22:06:14,510 [INFO]   rejection/non_dsa: 1290
+2026-07-02 22:06:14,510 [INFO]   rejection/missing_tests: 550
+2026-07-02 22:06:14,510 [INFO]   rejection/duplicate: 5
+2026-07-02 22:06:14,510 [INFO] Processing split 'test' from data/raw/apps_test.json
+2026-07-02 22:18:42,285 [INFO] [test] total=5000, kept=2536, removed=2464
+2026-07-02 22:18:42,285 [INFO]   rejection/invalid_solution: 1235
+2026-07-02 22:18:42,285 [INFO]   rejection/non_dsa: 1218
+2026-07-02 22:18:42,286 [INFO]   rejection/duplicate: 11
+2026-07-02 22:18:42,286 [INFO] ======================================================
+2026-07-02 22:18:42,286 [INFO] Cleaning complete.
+2026-07-02 22:18:42,286 [INFO] train: kept=3155, removed=1845, total=5000
+2026-07-02 22:18:42,286 [INFO]   topic/strings: 1308
+2026-07-02 22:18:42,286 [INFO]   topic/arrays: 928
+2026-07-02 22:18:42,286 [INFO]   topic/dynamic_programming: 569
+2026-07-02 22:18:42,286 [INFO]   topic/trees: 60
+2026-07-02 22:18:42,286 [INFO]   topic/hashmaps: 50
+2026-07-02 22:18:42,286 [INFO]   topic/graphs: 50
+2026-07-02 22:18:42,286 [INFO]   topic/heaps: 41
+2026-07-02 22:18:42,286 [INFO]   topic/queues: 41
+2026-07-02 22:18:42,286 [INFO]   topic/backtracking: 41
+2026-07-02 22:18:42,286 [INFO]   topic/stacks: 30
+2026-07-02 22:18:42,286 [INFO]   topic/recursion: 18
+2026-07-02 22:18:42,286 [INFO]   topic/binary_search: 17
+2026-07-02 22:18:42,287 [INFO]   topic/greedy: 1
+2026-07-02 22:18:42,287 [INFO]   topic/linked_lists: 1
+2026-07-02 22:18:42,287 [INFO]   difficulty/introductory: 1718
+2026-07-02 22:18:42,287 [INFO]   difficulty/interview: 1171
+2026-07-02 22:18:42,287 [INFO]   difficulty/competition: 266
+2026-07-02 22:18:42,287 [INFO] test: kept=2536, removed=2464, total=5000
+2026-07-02 22:18:42,287 [INFO]   topic/dynamic_programming: 897
+2026-07-02 22:18:42,287 [INFO]   topic/strings: 861
+2026-07-02 22:18:42,287 [INFO]   topic/arrays: 304
+2026-07-02 22:18:42,287 [INFO]   topic/trees: 97
+2026-07-02 22:18:42,287 [INFO]   topic/graphs: 82
+2026-07-02 22:18:42,287 [INFO]   topic/queues: 72
+2026-07-02 22:18:42,287 [INFO]   topic/hashmaps: 60
+2026-07-02 22:18:42,287 [INFO]   topic/heaps: 53
+2026-07-02 22:18:42,287 [INFO]   topic/binary_search: 34
+2026-07-02 22:18:42,287 [INFO]   topic/backtracking: 27
+2026-07-02 22:18:42,287 [INFO]   topic/stacks: 24
+2026-07-02 22:18:42,288 [INFO]   topic/recursion: 23
+2026-07-02 22:18:42,288 [INFO]   topic/greedy: 1
+2026-07-02 22:18:42,288 [INFO]   topic/linked_lists: 1
+2026-07-02 22:18:42,288 [INFO]   difficulty/interview: 1858
+2026-07-02 22:18:42,288 [INFO]   difficulty/introductory: 467
+2026-07-02 22:18:42,288 [INFO]   difficulty/competition: 211
+2026-07-02 22:18:42,288 [INFO] ======================================================

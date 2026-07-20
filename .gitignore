@@ -3,8 +3,15 @@ __pycache__/
 data/raw/*
 data/cleaned/*
 data/transformed/*
-models/base/*
-models/adapters/*
-logs/*
 .env
 .venv
+
+# Models directories
+models/base/
+models/checkpoints/
+models/checkpoints_archive/
+models/checkpoints_verify/
+models/adapters_archive/
+
+# Installer files
+vc_redist.x64.exe

@@ -11,7 +11,7 @@ import sys
 import json
 import argparse
 from pathlib import Path
-
+import re
 # Prevent GUI windows for matplotlib
 import matplotlib
 matplotlib.use('Agg')

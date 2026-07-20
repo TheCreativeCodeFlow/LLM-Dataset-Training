@@ -21,12 +21,11 @@ from datasets import Dataset
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
-    TrainingArguments,
     BitsAndBytesConfig,
     TrainerCallback,
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
-from trl import SFTTrainer
+from trl import SFTTrainer, SFTConfig
 
 # Ensure large integer string limits are bypassed
 sys.set_int_max_str_digits(0)
@@ -90,6 +89,8 @@ def validate_dataset(path: str, name: str) -> list:
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
+        if isinstance(data, dict):
+            data = [data]
     except Exception:
         try:
             with open(path, "r", encoding="utf-8") as f:
@@ -221,6 +222,7 @@ class TrainingLoggerCallback(TrainerCallback):
 def main():
     parser = argparse.ArgumentParser(description="QLoRA Dataset Fine-Tuning Pipeline")
     parser.add_argument("--config", default="configs/train_config.yaml", help="Path to config yaml file")
+    parser.add_argument("--dry-run", action="store_true", help="Perform setup and initialization without running training")
     args = parser.parse_args()
 
     config_path = args.config
@@ -251,32 +253,43 @@ def main():
     tokenizer.pad_token = tokenizer.eos_token
     tokenizer.padding_side = "right"
 
-    # Fallback Chat Template Setup
-    if tokenizer.chat_template is None:
-        print("Tokenizer has no default chat template. Configuring internal fallback template...")
+    # Configure Chat Template for Training Compatibility (Instruction Masking)
+    model_name_lower = model_config["name"].lower()
+    if "phi-3" in model_name_lower:
+        print("Configuring Phi-3 training-compatible chat template...")
         tokenizer.chat_template = (
             "{% for message in messages %}"
-            "{{'<|im_start|>' + message['role'] + '\n' + message['content'] + '<|im_end|>\n'}}"
-            "{% endfor %}"
-            "{% if add_generation_prompt %}"
-            "{{'<|im_start|>assistant\n'}}"
+            "{% if message['role'] == 'system' %}"
+            "{{ '<|system|>\n' + message['content'] + '<|end|>\n' }}"
+            "{% elif message['role'] == 'user' %}"
+            "{{ '<|user|>\n' + message['content'] + '<|end|>\n' }}"
+            "{% elif message['role'] == 'assistant' %}"
+            "{{ '<|assistant|>\n' }}"
+            "{% generation %}"
+            "{{ message['content'] + '<|end|>\n' }}"
+            "{% endgeneration %}"
             "{% endif %}"
+            "{% endfor %}"
+        )
+    else:
+        print("Configuring Llama/General training-compatible chat template...")
+        tokenizer.chat_template = (
+            "{% for message in messages %}"
+            "{% if message['role'] == 'system' %}"
+            "{{ '<|im_start|>system\n' + message['content'] + '<|im_end|>\n' }}"
+            "{% elif message['role'] == 'user' %}"
+            "{{ '<|im_start|>user\n' + message['content'] + '<|im_end|>\n' }}"
+            "{% elif message['role'] == 'assistant' %}"
+            "{{ '<|im_start|>assistant\n' }}"
+            "{% generation %}"
+            "{{ message['content'] + '<|im_end|>\n' }}"
+            "{% endgeneration %}"
+            "{% endif %}"
+            "{% endfor %}"
         )
 
-    # Format Datasets
-    def apply_template(examples):
-        texts = []
-        for messages in examples["messages"]:
-            text = tokenizer.apply_chat_template(
-                messages,
-                tokenize=False,
-                add_generation_prompt=False
-            )
-            texts.append(text)
-        return {"text": texts}
-
-    train_dataset = Dataset.from_list(train_raw).map(apply_template, batched=True)
-    eval_dataset = Dataset.from_list(eval_raw).map(apply_template, batched=True)
+    train_dataset = Dataset.from_list(train_raw)
+    eval_dataset = Dataset.from_list(eval_raw)
 
     # Load Base Model
     if has_cuda:
@@ -310,9 +323,10 @@ def main():
         model = AutoModelForCausalLM.from_pretrained(
             model_config["name"],
             device_map=None,
-            torch_dtype=torch.float32,
+            torch_dtype=torch.bfloat16,
             attn_implementation="eager",
             trust_remote_code=False,
+            low_cpu_mem_usage=True,
         )
         model.config.use_cache = model_config.get("use_cache", False)
 
@@ -353,10 +367,11 @@ def main():
         max_seq_length=data_config["max_seq_length"]
     )
 
-    # Training Arguments
-    training_args = TrainingArguments(
+    # SFT Config
+    training_args = SFTConfig(
         output_dir=train_config["output_dir"],
         num_train_epochs=train_config["num_train_epochs"],
+        max_steps=train_config.get("max_steps", -1),
         per_device_train_batch_size=train_config["per_device_train_batch_size"],
         per_device_eval_batch_size=train_config["per_device_eval_batch_size"],
         gradient_accumulation_steps=train_config["gradient_accumulation_steps"],
@@ -374,6 +389,7 @@ def main():
         # Strategies
         save_strategy=train_config["save_strategy"],
         save_steps=train_config["save_steps"],
+        save_total_limit=train_config.get("save_total_limit", 3),
         eval_strategy=train_config["eval_strategy"],
         eval_steps=train_config["eval_steps"],
         logging_strategy=train_config["logging_strategy"],
@@ -384,6 +400,11 @@ def main():
         metric_for_best_model=train_config["metric_for_best_model"],
         greater_is_better=train_config["greater_is_better"],
         report_to=train_config["report_to"],
+
+        # SFT Specific Configs
+        dataset_text_field=None,
+        assistant_only_loss=True,
+        max_length=data_config["max_seq_length"],
     )
 
     # Initialize SFTTrainer
@@ -392,10 +413,13 @@ def main():
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
-        dataset_text_field="text",
-        max_seq_length=data_config["max_seq_length"],
+        processing_class=tokenizer,
         callbacks=[logger_callback],
     )
+
+    if args.dry_run:
+        print("READY FOR TRAINING - DRY INITIALIZATION SUCCESSFUL")
+        return
 
     # Automatic Resume Setup
     latest_checkpoint = find_latest_checkpoint(train_config["output_dir"])

@@ -1,0 +1,343 @@
+2026-07-02 18:14:45,900 - INFO - Starting dataset fetch: codeparrot/apps
+2026-07-02 18:14:45,900 - ERROR - `trust_remote_code` is not supported anymore.
+Please check that the Hugging Face dataset 'codeparrot/apps' isn't based on a loading script and remove `trust_remote_code`.
+If the dataset is based on a loading script, please ask the dataset author to remove it and convert it to a standard format like Parquet.
+2026-07-02 18:14:48,144 - INFO - HTTP Request: GET https://huggingface.co/api/agent-harnesses "HTTP/1.1 200 OK"
+2026-07-02 18:14:48,655 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 18:14:49,162 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/codeparrot/apps/21e74ddf8de1a21436da12e3e653065c5213e9d1/README.md "HTTP/1.1 200 OK"
+2026-07-02 18:14:49,672 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/codeparrot/apps/21e74ddf8de1a21436da12e3e653065c5213e9d1/README.md "HTTP/1.1 200 OK"
+2026-07-02 18:14:50,181 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/21e74ddf8de1a21436da12e3e653065c5213e9d1/apps.py "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 18:14:50,182 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 18:14:50,697 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/codeparrot/apps/21e74ddf8de1a21436da12e3e653065c5213e9d1/apps.py "HTTP/1.1 200 OK"
+2026-07-02 18:14:51,202 - INFO - HTTP Request: GET https://huggingface.co/api/resolve-cache/datasets/codeparrot/apps/21e74ddf8de1a21436da12e3e653065c5213e9d1/apps.py "HTTP/1.1 200 OK"
+2026-07-02 18:14:51,203 - ERROR - Failed to load dataset: Dataset scripts are no longer supported, but found apps.py
+2026-07-02 18:15:47,956 - INFO - Starting dataset fetch: codeparrot/apps
+2026-07-02 18:15:48,655 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 18:15:48,655 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 18:15:48,715 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/codeparrot/apps/21e74ddf8de1a21436da12e3e653065c5213e9d1/README.md "HTTP/1.1 200 OK"
+2026-07-02 18:15:48,716 - ERROR - Failed to load dataset: Dataset scripts are no longer supported, but found apps.py
+2026-07-02 18:24:18,888 - INFO - Starting dataset fetch: google-research-datasets/mbpp
+2026-07-02 18:24:24,159 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 18:24:24,159 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 18:24:24,191 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/google-research-datasets/mbpp/4bb6404fdc6cacfda99d4ac4205087b89d32030c/README.md "HTTP/1.1 200 OK"
+2026-07-02 18:24:24,672 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/4bb6404fdc6cacfda99d4ac4205087b89d32030c/mbpp.py "HTTP/1.1 404 Not Found"
+2026-07-02 18:24:30,278 - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/google-research-datasets/mbpp/google-research-datasets/mbpp.py "HTTP/1.1 404 Not Found"
+2026-07-02 18:24:31,298 - INFO - HTTP Request: GET https://huggingface.co/api/datasets/google-research-datasets/mbpp/revision/4bb6404fdc6cacfda99d4ac4205087b89d32030c "HTTP/1.1 200 OK"
+2026-07-02 18:24:31,813 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/4bb6404fdc6cacfda99d4ac4205087b89d32030c/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2026-07-02 18:24:36,400 - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=google-research-datasets/mbpp "HTTP/1.1 200 OK"
+2026-07-02 18:24:36,909 - INFO - HTTP Request: GET https://huggingface.co/api/datasets/google-research-datasets/mbpp/tree/4bb6404fdc6cacfda99d4ac4205087b89d32030c/full?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-02 18:24:37,435 - INFO - HTTP Request: GET https://huggingface.co/api/datasets/google-research-datasets/mbpp/tree/4bb6404fdc6cacfda99d4ac4205087b89d32030c?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-07-02 18:24:37,931 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/4bb6404fdc6cacfda99d4ac4205087b89d32030c/dataset_infos.json "HTTP/1.1 404 Not Found"
+2026-07-02 18:25:01,128 - INFO - Starting dataset fetch: google-research-datasets/mbpp
+2026-07-02 18:25:01,720 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 18:25:01,720 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 18:25:01,794 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/google-research-datasets/mbpp/4bb6404fdc6cacfda99d4ac4205087b89d32030c/README.md "HTTP/1.1 200 OK"
+2026-07-02 18:25:02,104 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/4bb6404fdc6cacfda99d4ac4205087b89d32030c/mbpp.py "HTTP/1.1 404 Not Found"
+2026-07-02 18:25:03,285 - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/google-research-datasets/mbpp/google-research-datasets/mbpp.py "HTTP/1.1 404 Not Found"
+2026-07-02 18:25:03,560 - INFO - HTTP Request: GET https://huggingface.co/api/datasets/google-research-datasets/mbpp/revision/4bb6404fdc6cacfda99d4ac4205087b89d32030c "HTTP/1.1 200 OK"
+2026-07-02 18:25:03,987 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/4bb6404fdc6cacfda99d4ac4205087b89d32030c/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2026-07-02 18:25:04,905 - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=google-research-datasets/mbpp "HTTP/1.1 200 OK"
+2026-07-02 18:25:05,165 - INFO - HTTP Request: GET https://huggingface.co/api/datasets/google-research-datasets/mbpp/tree/4bb6404fdc6cacfda99d4ac4205087b89d32030c/full?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-02 18:25:05,418 - INFO - HTTP Request: GET https://huggingface.co/api/datasets/google-research-datasets/mbpp/tree/4bb6404fdc6cacfda99d4ac4205087b89d32030c?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-07-02 18:25:05,745 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/4bb6404fdc6cacfda99d4ac4205087b89d32030c/dataset_infos.json "HTTP/1.1 404 Not Found"
+2026-07-02 18:25:05,788 - INFO - train: total=374, valid=374, skipped=0
+2026-07-02 18:25:05,833 - INFO - test: total=500, valid=500, skipped=0
+2026-07-02 18:25:05,833 - INFO - ========================================
+2026-07-02 18:25:05,833 - INFO - SUMMARY: total=874, valid=874, skipped=0
+2026-07-02 18:25:05,833 - INFO - ========================================
+2026-07-02 18:26:45,381 - INFO - Starting dataset fetch: google-research-datasets/mbpp
+2026-07-02 18:26:46,102 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-02 18:26:46,102 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 18:26:46,137 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/datasets/google-research-datasets/mbpp/4bb6404fdc6cacfda99d4ac4205087b89d32030c/README.md "HTTP/1.1 200 OK"
+2026-07-02 18:26:46,610 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/4bb6404fdc6cacfda99d4ac4205087b89d32030c/mbpp.py "HTTP/1.1 404 Not Found"
+2026-07-02 18:26:48,144 - INFO - HTTP Request: HEAD https://s3.amazonaws.com/datasets.huggingface.co/datasets/datasets/google-research-datasets/mbpp/google-research-datasets/mbpp.py "HTTP/1.1 404 Not Found"
+2026-07-02 18:26:48,651 - INFO - HTTP Request: GET https://huggingface.co/api/datasets/google-research-datasets/mbpp/revision/4bb6404fdc6cacfda99d4ac4205087b89d32030c "HTTP/1.1 200 OK"
+2026-07-02 18:26:49,173 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/4bb6404fdc6cacfda99d4ac4205087b89d32030c/.huggingface.yaml "HTTP/1.1 404 Not Found"
+2026-07-02 18:26:50,201 - INFO - HTTP Request: GET https://datasets-server.huggingface.co/info?dataset=google-research-datasets/mbpp "HTTP/1.1 200 OK"
+2026-07-02 18:26:50,694 - INFO - HTTP Request: GET https://huggingface.co/api/datasets/google-research-datasets/mbpp/tree/4bb6404fdc6cacfda99d4ac4205087b89d32030c/full?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-02 18:26:51,206 - INFO - HTTP Request: GET https://huggingface.co/api/datasets/google-research-datasets/mbpp/tree/4bb6404fdc6cacfda99d4ac4205087b89d32030c?recursive=false&expand=false "HTTP/1.1 200 OK"
+2026-07-02 18:26:51,712 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/google-research-datasets/mbpp/resolve/4bb6404fdc6cacfda99d4ac4205087b89d32030c/dataset_infos.json "HTTP/1.1 404 Not Found"
+2026-07-02 18:26:51,751 - INFO - train: total=374, valid=374, skipped=0
+2026-07-02 18:26:51,793 - INFO - test: total=500, valid=500, skipped=0
+2026-07-02 18:26:51,793 - INFO - ========================================
+2026-07-02 18:26:51,793 - INFO - TRAIN: total=374, valid=374, skipped=0
+2026-07-02 18:26:51,793 - INFO - TEST: total=500, valid=500, skipped=0
+2026-07-02 18:26:51,793 - INFO - ========================================
+2026-07-02 18:34:18,910 - INFO - Starting dataset fetch: codeparrot/apps
+2026-07-02 18:34:19,596 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/train.jsonl "HTTP/1.1 302 Found"
+2026-07-02 18:34:19,862 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/test.jsonl "HTTP/1.1 302 Found"
+2026-07-02 18:34:19,863 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 19:08:41,226 - INFO - Starting dataset fetch: codeparrot/apps
+2026-07-02 19:08:42,535 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/train.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:08:42,536 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 19:08:43,053 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/test.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:08:44,095 - INFO - train: total=5000, valid=0, skipped=5000
+2026-07-02 19:08:57,609 - INFO - test: total=5000, valid=0, skipped=5000
+2026-07-02 19:08:57,609 - INFO - ========================================
+2026-07-02 19:08:57,609 - INFO - TRAIN: total=5000, valid=0, skipped=5000
+2026-07-02 19:08:57,610 - INFO - TEST: total=5000, valid=0, skipped=5000
+2026-07-02 19:08:57,610 - INFO - ========================================
+2026-07-02 19:12:48,999 - INFO - Starting dataset fetch: codeparrot/apps
+2026-07-02 19:12:49,661 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/train.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:12:49,661 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 19:12:50,171 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/test.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:12:51,252 - INFO - train: total=5000, valid=0, skipped=5000
+2026-07-02 19:13:04,258 - INFO - test: total=5000, valid=0, skipped=5000
+2026-07-02 19:13:04,258 - INFO - ========================================
+2026-07-02 19:13:04,258 - INFO - TRAIN: total=5000, valid=0, skipped=5000
+2026-07-02 19:13:04,258 - INFO - TEST: total=5000, valid=0, skipped=5000
+2026-07-02 19:13:04,259 - INFO - ========================================
+2026-07-02 19:16:37,635 - INFO - Starting dataset fetch: codeparrot/apps
+2026-07-02 19:16:38,961 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/train.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:16:38,961 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 19:16:39,470 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/test.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:16:39,507 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,510 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,515 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,518 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,520 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,524 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,527 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,533 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,534 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,536 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,538 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,541 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,547 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,550 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,552 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,553 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,556 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,563 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,569 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,570 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,573 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,579 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,585 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,586 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,588 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,592 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,594 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,598 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,601 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,603 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,604 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,606 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,608 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,610 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,611 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,617 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,622 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,623 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,624 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,626 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,627 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,630 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,633 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,635 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,636 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,637 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,639 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,641 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,644 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,645 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,647 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,647 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,651 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,655 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,657 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,663 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,667 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,675 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,679 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,684 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,689 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,691 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,694 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,698 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,701 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,705 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,706 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,707 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,715 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,723 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,728 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,731 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,732 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,733 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,735 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,739 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,741 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,742 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,744 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,747 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,750 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,752 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,754 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,756 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,757 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,761 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,762 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,764 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,765 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,767 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,774 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,780 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,784 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,787 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,789 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,791 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,797 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,801 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,803 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,806 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,808 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,810 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,811 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,814 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,816 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,818 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,819 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,823 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,824 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,827 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,829 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,830 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,832 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,834 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,835 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,843 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,896 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,901 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:39,968 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,022 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,043 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,050 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,053 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,056 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,058 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,059 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,064 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,072 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,081 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,305 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,355 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,357 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,358 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,360 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,366 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,370 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,372 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,374 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,375 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,379 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,380 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,381 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,382 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,383 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,387 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,547 - WARNING - Field 'input_output' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,682 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,693 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,734 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,754 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,784 - WARNING - Field 'input_output' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,803 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:16:40,829 - WARNING - Field 'solutions' exceeds 51200 bytes, skipping
+2026-07-02 19:17:54,472 - INFO - Starting dataset fetch: codeparrot/apps
+2026-07-02 19:17:55,773 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/train.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:17:56,281 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/test.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:17:57,345 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:17:57,984 - INFO - train: total=5000, valid=4804, skipped=196
+2026-07-02 19:17:57,984 - INFO -   oversized_fields: 1
+2026-07-02 19:17:57,984 - INFO -   input_output_not_dict: 195
+2026-07-02 19:17:58,620 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:17:58,952 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:17:59,265 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:17:59,402 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:17:59,713 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:00,229 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:00,692 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:01,055 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:01,355 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:01,625 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:02,290 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:03,035 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:03,271 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:03,488 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:03,634 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:03,762 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:03,914 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:04,230 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:04,503 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:04,629 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:04,851 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:05,070 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:05,328 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:05,467 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:05,561 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:05,668 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:06,008 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:06,536 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:06,723 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:07,278 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:07,711 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:08,130 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:08,907 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:09,309 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:09,826 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:10,757 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:11,386 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:11,675 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:12,320 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:12,557 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:12,870 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:12,988 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:13,503 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:13,827 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:13,960 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:14,118 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:14,320 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:14,449 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:14,554 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:14,697 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:14,846 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:14,915 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:15,262 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:15,513 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:15,874 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:16,035 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:16,150 - WARNING - Field 'input_output' exceeds 5242880 bytes, skipping
+2026-07-02 19:18:16,387 - INFO - test: total=5000, valid=3708, skipped=1292
+2026-07-02 19:18:16,387 - INFO -   oversized_fields: 57
+2026-07-02 19:18:16,387 - INFO -   solutions_not_list: 1235
+2026-07-02 19:18:16,387 - INFO - ========================================
+2026-07-02 19:18:16,387 - INFO - TRAIN: total=5000, valid=4804, skipped=196
+2026-07-02 19:18:16,388 - INFO -   oversized_fields: 1
+2026-07-02 19:18:16,388 - INFO -   input_output_not_dict: 195
+2026-07-02 19:18:16,388 - INFO - TEST: total=5000, valid=3708, skipped=1292
+2026-07-02 19:18:16,388 - INFO -   oversized_fields: 57
+2026-07-02 19:18:16,388 - INFO -   solutions_not_list: 1235
+2026-07-02 19:18:16,388 - INFO - ========================================
+2026-07-02 19:25:43,795 - INFO - Starting dataset fetch: codeparrot/apps
+2026-07-02 19:25:44,575 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/train.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:25:45,085 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/test.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:25:45,085 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 19:25:47,117 - INFO - train: total=5000, valid=5000, skipped=0
+2026-07-02 19:26:09,154 - INFO - test: total=5000, valid=3765, skipped=1235
+2026-07-02 19:26:09,155 - INFO -   solutions_not_list: 1235
+2026-07-02 19:26:09,155 - INFO - ========================================
+2026-07-02 19:26:09,155 - INFO - TRAIN: total=5000, valid=5000, skipped=0
+2026-07-02 19:26:09,155 - INFO - TEST: total=5000, valid=3765, skipped=1235
+2026-07-02 19:26:09,155 - INFO -   solutions_not_list: 1235
+2026-07-02 19:26:09,155 - INFO - ========================================
+2026-07-02 19:27:59,169 - INFO - Starting dataset fetch: codeparrot/apps
+2026-07-02 19:28:00,390 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/train.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:28:00,662 - INFO - HTTP Request: HEAD https://huggingface.co/datasets/codeparrot/apps/resolve/main/test.jsonl "HTTP/1.1 302 Found"
+2026-07-02 19:28:00,662 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-02 19:28:02,680 - INFO - train: total=5000, valid=5000, skipped=0
+2026-07-02 19:28:23,942 - INFO - test: total=5000, valid=5000, skipped=0
+2026-07-02 19:28:23,942 - INFO - ========================================
+2026-07-02 19:28:23,943 - INFO - TRAIN: total=5000, valid=5000, skipped=0
+2026-07-02 19:28:23,943 - INFO - TEST: total=5000, valid=5000, skipped=0
+2026-07-02 19:28:23,943 - INFO - ========================================

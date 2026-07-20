@@ -1,0 +1,23 @@
+model:
+  base_model: "meta-llama/Meta-Llama-3-8B-Instruct"
+  adapter_path: "./models/adapters/dsa-tutor-lora"
+  torch_dtype: "bfloat16"
+
+eval:
+  dataset_path: "./data/transformed/test.jsonl"
+  max_samples: 100
+  max_seq_length: 4096
+  batch_size: 2
+
+generation:
+  max_new_tokens: 512
+  temperature: 0.1
+  top_p: 0.95
+  do_sample: true
+  repetition_penalty: 1.1
+
+metrics:
+  - "bleu"
+  - "rouge"
+  - "code_bleu"
+  - "pass_at_k"

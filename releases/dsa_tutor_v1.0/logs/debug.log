@@ -1,0 +1,13 @@
+[2026-07-07 13:45:00]
+Problem: Training fails on systems without CUDA (OOM or RuntimeError).
+Root Cause: check_cuda raised a hard RuntimeError, quantization was forced via BitsAndBytes on CPU, and TrainingArguments set GPU-only dtypes (bf16/fp16).
+Fix: Modified check_cuda to warn and return a boolean, load unquantized float32 model on CPU, skip bitsandbytes model preparation, and adjust TrainingArguments dynamically.
+Files Modified: scripts/train.py
+Result: CPU fallback implemented.
+
+[2026-07-07 13:48:00]
+Problem: KeyError: 'type' raised inside modeling_phi3.py on model load.
+Root Cause: Custom model code downloaded from HF Hub via trust_remote_code=True attempts to access config.rope_scaling["type"], which is incompatible with newer transformers (v5+) config structures that use rope_type or omit type.
+Fix: Set trust_remote_code=False for both model and tokenizer loading to use transformers' native Phi3 model class.
+Files Modified: scripts/train.py
+Result: Native model class utilized; remote code dependencies bypassed.

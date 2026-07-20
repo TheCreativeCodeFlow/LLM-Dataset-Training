@@ -20,19 +20,17 @@ sys.set_int_max_str_digits(0)
 
 
 def merge_datasets(config: dict):
-    """Load, deduplicate, validate, and merge the APPS and Tutor datasets deterministically."""
+    """Load, deduplicate, validate, and merge the SFT, Augmented SFT, and Tutor datasets deterministically, then perform stratified 90/10 split."""
     print("Starting dataset merge...")
     
-    # Load Source 1: train_sft_augmented.json
+    # Load Source 1: train_sft_augmented.json (contains original SFT + augmented SFT)
     src1_path = "data/transformed/train_sft_augmented.json"
-    if not os.path.exists(src1_path):
-        # Create empty placeholder if it doesn't exist to prevent crash in dry-run
-        src1_data = []
-    else:
+    src1_data = []
+    if os.path.exists(src1_path):
         with open(src1_path, "r", encoding="utf-8") as f:
             src1_data = json.load(f)
             
-    # Load Source 2: dsa_tutor_v1.jsonl
+    # Load Source 2: dsa_tutor_v1.jsonl (contains Tutor Corpus)
     src2_path = "dataset/tutor_corpus/dsa_tutor_v1.jsonl"
     src2_data = []
     if os.path.exists(src2_path):
@@ -40,34 +38,70 @@ def merge_datasets(config: dict):
             for line in f:
                 if line.strip():
                     src2_data.append(json.loads(line))
-                    
-    # Load Validation Set
-    val_path = "data/transformed/test_sft.json"
-    if not os.path.exists(val_path):
-        val_data = []
-    else:
-        with open(val_path, "r", encoding="utf-8") as f:
-            val_data = json.load(f)
 
-    # Schema Validation and Deduplication
-    seen_conversations = set()
-    merged_train = []
+    # Load Source 3: train_sft.json (just in case any got skipped by augmentation)
+    src3_path = "data/transformed/train_sft.json"
+    src3_data = []
+    if os.path.exists(src3_path):
+        with open(src3_path, "r", encoding="utf-8") as f:
+            src3_data = json.load(f)
+
+    # Merge all pools
+    raw_merged = src1_data + src2_data + src3_data
     
-    for item in src1_data + src2_data:
-        # Validate minimal schema compatibility
-        if "messages" not in item:
+    # Deduplicate and validate
+    seen_conversations = set()
+    validated_data = []
+    
+    for item in raw_merged:
+        if not isinstance(item, dict) or "messages" not in item:
             continue
+        messages = item["messages"]
+        if not isinstance(messages, list) or len(messages) == 0:
+            continue
+            
         # Deduplicate based on messages content signature
-        convo_sig = json.dumps(item["messages"])
+        convo_sig = json.dumps(messages)
         if convo_sig not in seen_conversations:
             seen_conversations.add(convo_sig)
-            merged_train.append(item)
+            validated_data.append(item)
             
-    # Shuffle deterministically
-    seed = config["training"].get("seed", 42)
-    random.seed(seed)
-    random.shuffle(merged_train)
+    # Deterministic Stratified Split (90% Train / 10% Validation)
+    # Group by (topic, difficulty, conversation_type)
+    from collections import defaultdict
+    strata = defaultdict(list)
+    for item in validated_data:
+        topic = item.get("topic") or "general"
+        difficulty = item.get("difficulty") or "medium"
+        convo_type = item.get("conversation_type") or "original"
+        strata[(topic, difficulty, convo_type)].append(item)
+        
+    train_data = []
+    val_data = []
     
+    # Deterministically sort keys for consistency
+    sorted_keys = sorted(strata.keys())
+    
+    # Seeded Random
+    seed = config["training"].get("seed", 42)
+    rng = random.Random(seed)
+    
+    val_fraction_accum = 0.0
+    target_val = 0.1
+    
+    for key in sorted_keys:
+        items = strata[key]
+        rng.shuffle(items)
+        n = len(items)
+        
+        # Calculate validation allocation with fraction carry-over
+        val_fraction_accum += n * target_val
+        n_val = int(val_fraction_accum)
+        val_fraction_accum -= n_val
+        
+        val_data.extend(items[:n_val])
+        train_data.extend(items[n_val:])
+        
     # Write output final files
     os.makedirs("data/final", exist_ok=True)
     
@@ -75,15 +109,16 @@ def merge_datasets(config: dict):
     val_out = "data/final/validation_v1.jsonl"
     
     with open(train_out, "w", encoding="utf-8") as f:
-        for item in merged_train:
+        for item in train_data:
             f.write(json.dumps(item) + "\n")
             
     with open(val_out, "w", encoding="utf-8") as f:
         for item in val_data:
             f.write(json.dumps(item) + "\n")
             
-    print(f"Dataset merge complete. Merged Train Size: {len(merged_train)} | Validation Size: {len(val_data)}")
-    return len(merged_train), len(val_data)
+    print(f"Dataset merge complete. Merged Pool Size: {len(validated_data)}")
+    print(f"Train Size: {len(train_data)} | Validation Size: {len(val_data)}")
+    return len(train_data), len(val_data)
 
 
 def run_quality_gates(log_path: str) -> list[str]:

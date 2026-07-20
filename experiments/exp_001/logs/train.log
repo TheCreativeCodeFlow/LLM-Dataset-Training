@@ -1,0 +1,32 @@
+
+=== Training Session Started at 2026-07-11 07:46:26 ===
+
+=== Training Session Started at 2026-07-11 08:36:08 ===
+
+=== Training Session Started at 2026-07-11 08:38:24 ===
+
+=== Training Session Started at 2026-07-11 08:39:31 ===
+[2026-07-11 08:42:41] Step: 3 | Epoch: 3.00 | Loss: N/A | Eval Loss: 2.1350 | LR: N/A | GPU Mem: 0.00 GB | Tokens/sec: 518.0
+[2026-07-11 08:42:44] Step: 3 | Epoch: 3.00 | Loss: N/A | Eval Loss: N/A | LR: N/A | GPU Mem: 0.00 GB | Tokens/sec: N/A
+
+=== Training Session Started at 2026-07-11 08:59:34 ===
+
+=== Training Session Started at 2026-07-11 09:03:06 ===
+[2026-07-11 09:56:52] Step: 10 | Epoch: 0.75 | Loss: 2.3606 | Eval Loss: N/A | LR: 1.85e-04 | GPU Mem: 0.00 GB | Tokens/sec: 25.4
+[2026-07-11 11:04:38] Step: 20 | Epoch: 1.45 | Loss: 1.4014 | Eval Loss: N/A | LR: 1.23e-04 | GPU Mem: 0.00 GB | Tokens/sec: 20.1
+[2026-07-11 12:21:19] Step: 30 | Epoch: 2.15 | Loss: 0.9093 | Eval Loss: N/A | LR: 4.78e-05 | GPU Mem: 0.00 GB | Tokens/sec: 17.8
+[2026-07-11 13:50:01] Step: 40 | Epoch: 2.91 | Loss: 0.6340 | Eval Loss: N/A | LR: 2.76e-06 | GPU Mem: 0.00 GB | Tokens/sec: 15.4
+[2026-07-11 14:02:11] Step: 42 | Epoch: 3.00 | Loss: N/A | Eval Loss: 1.8421 | LR: N/A | GPU Mem: 0.00 GB | Tokens/sec: 22.5
+[2026-07-11 14:02:13] Step: 42 | Epoch: 3.00 | Loss: N/A | Eval Loss: N/A | LR: N/A | GPU Mem: 0.00 GB | Tokens/sec: N/A
+
+=== Training Session Started at 2026-07-11 17:58:54 ===
+
+=== Training Session Started at 2026-07-11 20:00:21 ===
+
+=== Training Session Started at 2026-07-12 21:23:47 ===
+
+=== Training Session Started at 2026-07-12 21:24:17 ===
+
+=== Training Session Started at 2026-07-12 21:24:45 ===
+[2026-07-12 21:33:14] Step: 3 | Epoch: 0.00 | Loss: N/A | Eval Loss: 10.3770 | LR: N/A | GPU Mem: 0.00 GB | Tokens/sec: 48.2
+[2026-07-12 21:33:17] Step: 3 | Epoch: 0.00 | Loss: N/A | Eval Loss: N/A | LR: N/A | GPU Mem: 0.00 GB | Tokens/sec: N/A

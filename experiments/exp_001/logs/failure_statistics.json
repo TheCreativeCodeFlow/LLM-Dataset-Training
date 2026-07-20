@@ -1,0 +1,37 @@
+{
+  "total_samples": 100,
+  "successful_responses": 0,
+  "failed_responses": 100,
+  "failure_distributions": {
+    "by_category": {
+      "incorrect concept explanation": 100,
+      "poor hint progression": 20,
+      "incorrect complexity explanation": 20,
+      "incomplete response": 10,
+      "solution leakage": 4
+    },
+    "by_topic": {
+      "Arrays": 10,
+      "Strings": 10,
+      "Hash Maps": 10,
+      "Linked Lists": 10,
+      "Trees": 10,
+      "Graphs": 10,
+      "Binary Search": 10,
+      "Sliding Window": 10,
+      "Dynamic Programming": 10,
+      "Greedy": 10
+    },
+    "by_difficulty": {
+      "medium": 50,
+      "hard": 50
+    },
+    "by_conversation_type": {
+      "concept explanation": 20,
+      "hint generation": 20,
+      "bug diagnosis": 20,
+      "complexity analysis": 20,
+      "interview follow-up": 20
+    }
+  }
+}
