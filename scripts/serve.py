@@ -2,10 +2,13 @@
 """
 scripts/serve.py
 
-FastAPI inference server for DSA Tutor Platform.
-Exposes tutor mode endpoints, manages session routing, memory, and safety filters.
+Production FastAPI server for DSA Tutor.
+Provides chat, hint, review, debug, complexity, and health endpoints using
+a single shared TutorEngine singleton model instance.
 """
 
+import os
+import psutil
 import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
@@ -25,7 +28,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="DSA Tutor API",
-    version="1.1.0",
+    version="1.2.0",
     description="Production-grade tutoring and inference API for Data Structures and Algorithms.",
     lifespan=lifespan
 )
@@ -42,18 +45,25 @@ class ChatResponse(BaseModel):
     topic: str
     response: str
 
+def get_final_response(generator) -> str:
+    response_text = ""
+    for chunk in generator:
+        if chunk["token"] == "[DONE]":
+            response_text = chunk["full_response"]
+            break
+    return response_text
+
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded or initialized.")
         
     try:
-        # Run prompt routing & response pipeline
-        generator = tutor_engine.generate_response(
+        generator = tutor_engine.generate_response_stream(
             session_id=request.session_id,
             query=request.query
         )
-        response_text = next(generator)
+        response_text = get_final_response(generator)
         session = tutor_engine.get_or_create_session(request.session_id)
         
         return ChatResponse(
@@ -70,12 +80,12 @@ async def hint(request: ChatRequest):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded.")
     try:
-        generator = tutor_engine.generate_response(
+        generator = tutor_engine.generate_response_stream(
             session_id=request.session_id,
             query=request.query,
             force_mode="hint_generator"
         )
-        response_text = next(generator)
+        response_text = get_final_response(generator)
         session = tutor_engine.get_or_create_session(request.session_id)
         return ChatResponse(
             session_id=request.session_id,
@@ -91,12 +101,12 @@ async def review(request: ChatRequest):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded.")
     try:
-        generator = tutor_engine.generate_response(
+        generator = tutor_engine.generate_response_stream(
             session_id=request.session_id,
             query=request.query,
             force_mode="code_reviewer"
         )
-        response_text = next(generator)
+        response_text = get_final_response(generator)
         session = tutor_engine.get_or_create_session(request.session_id)
         return ChatResponse(
             session_id=request.session_id,
@@ -112,12 +122,12 @@ async def debug(request: ChatRequest):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded.")
     try:
-        generator = tutor_engine.generate_response(
+        generator = tutor_engine.generate_response_stream(
             session_id=request.session_id,
             query=request.query,
             force_mode="debugging_mentor"
         )
-        response_text = next(generator)
+        response_text = get_final_response(generator)
         session = tutor_engine.get_or_create_session(request.session_id)
         return ChatResponse(
             session_id=request.session_id,
@@ -133,12 +143,12 @@ async def complexity(request: ChatRequest):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded.")
     try:
-        generator = tutor_engine.generate_response(
+        generator = tutor_engine.generate_response_stream(
             session_id=request.session_id,
             query=request.query,
             force_mode="complexity_analyst"
         )
-        response_text = next(generator)
+        response_text = get_final_response(generator)
         session = tutor_engine.get_or_create_session(request.session_id)
         return ChatResponse(
             session_id=request.session_id,
@@ -151,9 +161,24 @@ async def complexity(request: ChatRequest):
 
 @app.get("/health")
 async def health():
+    if tutor_engine is None or tutor_engine.loader.model is None:
+        return {"status": "loading", "tutor_engine_loaded": False}
+        
+    process = psutil.Process(os.getpid())
+    mem_mb = process.memory_info().rss / (1024 * 1024)
+    
+    loader = tutor_engine.loader
     return {
         "status": "ok",
-        "tutor_engine_loaded": tutor_engine is not None,
+        "tutor_engine_loaded": True,
+        "base_model": loader.base_model_name,
+        "adapter": loader.adapter_path,
+        "tokenizer": loader.base_model_name,
+        "device": loader.device,
+        "memory_usage_mb": round(mem_mb, 2),
+        "load_status": "complete",
+        "model_hash": loader.model_hash,
+        "adapter_hash": loader.adapter_hash,
         "available_modes": list(SYSTEM_PROMPTS.keys())
     }
 
