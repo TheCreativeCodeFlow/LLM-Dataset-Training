@@ -7,10 +7,14 @@ Provides chat, hint, review, debug, complexity, and health endpoints using
 a single shared TutorEngine singleton model instance.
 """
 
+import sys
 import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 import psutil
 import uvicorn
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Security, Depends
+from fastapi.security.api_key import APIKeyHeader
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from contextlib import asynccontextmanager
 from scripts.tutor_engine import TutorEngine, SYSTEM_PROMPTS
@@ -33,6 +37,25 @@ app = FastAPI(
     lifespan=lifespan
 )
 
+# CORS configuration
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# API Key configuration
+API_KEY_NAME = "X-API-Key"
+api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=False)
+
+async def get_api_key(header_value: str = Depends(api_key_header)):
+    expected_key = os.getenv("DSA_TUTOR_API_KEY", "dsa_tutor_prod_secure_key_2026")
+    if not header_value or header_value != expected_key:
+        raise HTTPException(status_code=401, detail="Invalid or missing API Key")
+    return header_value
+
 class ChatRequest(BaseModel):
     session_id: str = "default_session"
     query: str
@@ -53,7 +76,7 @@ def get_final_response(generator) -> str:
             break
     return response_text
 
-@app.post("/chat", response_model=ChatResponse)
+@app.post("/chat", response_model=ChatResponse, dependencies=[Depends(get_api_key)])
 async def chat(request: ChatRequest):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded or initialized.")
@@ -75,7 +98,7 @@ async def chat(request: ChatRequest):
     except Exception as e:
         raise HTTPException(500, f"Error generating tutor response: {str(e)}")
 
-@app.post("/hint", response_model=ChatResponse)
+@app.post("/hint", response_model=ChatResponse, dependencies=[Depends(get_api_key)])
 async def hint(request: ChatRequest):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded.")
@@ -96,7 +119,7 @@ async def hint(request: ChatRequest):
     except Exception as e:
         raise HTTPException(500, f"Error generating hint: {str(e)}")
 
-@app.post("/review", response_model=ChatResponse)
+@app.post("/review", response_model=ChatResponse, dependencies=[Depends(get_api_key)])
 async def review(request: ChatRequest):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded.")
@@ -117,7 +140,7 @@ async def review(request: ChatRequest):
     except Exception as e:
         raise HTTPException(500, f"Error generating review: {str(e)}")
 
-@app.post("/debug", response_model=ChatResponse)
+@app.post("/debug", response_model=ChatResponse, dependencies=[Depends(get_api_key)])
 async def debug(request: ChatRequest):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded.")
@@ -138,7 +161,7 @@ async def debug(request: ChatRequest):
     except Exception as e:
         raise HTTPException(500, f"Error generating debugging guide: {str(e)}")
 
-@app.post("/complexity", response_model=ChatResponse)
+@app.post("/complexity", response_model=ChatResponse, dependencies=[Depends(get_api_key)])
 async def complexity(request: ChatRequest):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded.")
