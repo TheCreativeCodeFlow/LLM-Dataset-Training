@@ -13,6 +13,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 import psutil
 import uvicorn
 from fastapi import FastAPI, HTTPException, Security, Depends
+from fastapi.responses import StreamingResponse
 from fastapi.security.api_key import APIKeyHeader
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -68,119 +69,66 @@ class ChatResponse(BaseModel):
     topic: str
     response: str
 
-def get_final_response(generator) -> str:
-    response_text = ""
-    for chunk in generator:
-        if chunk["token"] == "[DONE]":
-            response_text = chunk["full_response"]
-            break
-    return response_text
-
-@app.post("/chat", response_model=ChatResponse, dependencies=[Depends(get_api_key)])
-async def chat(request: ChatRequest):
+async def stream_tutor_endpoint(category: str, request: ChatRequest, force_mode: str = None):
     if tutor_engine is None:
         raise HTTPException(503, "TutorEngine not fully loaded or initialized.")
         
-    try:
-        generator = tutor_engine.generate_response_stream(
-            session_id=request.session_id,
-            query=request.query
-        )
-        response_text = get_final_response(generator)
-        session = tutor_engine.get_or_create_session(request.session_id)
-        
-        return ChatResponse(
-            session_id=request.session_id,
-            tutor_mode=session.tutor_mode,
-            topic=session.current_topic,
-            response=response_text
-        )
-    except Exception as e:
-        raise HTTPException(500, f"Error generating tutor response: {str(e)}")
+    def event_generator():
+        try:
+            generator = tutor_engine.generate_response_stream(
+                session_id=request.session_id,
+                query=request.query,
+                force_mode=force_mode
+            )
+            
+            header_sent = False
+            mode_name = ""
+            accumulated_raw = ""
+            
+            for chunk in generator:
+                if chunk["token"] != "[DONE]":
+                    token = chunk["token"]
+                    accumulated_raw += token
+                    if not header_sent:
+                        mode = chunk["tutor_mode"]
+                        mode_name = mode.replace('_', ' ').title()
+                        header = f"**[{mode_name}]**\n\n### Concept & Explanation\n"
+                        yield f"data: {header}\n\n"
+                        header_sent = True
+                    yield f"data: {token}\n\n"
+                else:
+                    final_response = chunk["full_response"]
+                    header = f"**[{mode_name}]**\n\n### Concept & Explanation\n"
+                    prefix_len = len(header) + len(accumulated_raw)
+                    suffix = final_response[prefix_len:]
+                    if suffix:
+                        yield f"data: {suffix}\n\n"
+                    yield "data: [DONE]\n\n"
+        except Exception as e:
+            yield f"data: ⚠️ Error generating response: {str(e)}\n\n"
+            yield "data: [DONE]\n\n"
 
-@app.post("/hint", response_model=ChatResponse, dependencies=[Depends(get_api_key)])
+    return StreamingResponse(event_generator(), media_type="text/event-stream")
+
+@app.post("/chat", dependencies=[Depends(get_api_key)])
+async def chat(request: ChatRequest):
+    return await stream_tutor_endpoint("chat", request)
+
+@app.post("/hint", dependencies=[Depends(get_api_key)])
 async def hint(request: ChatRequest):
-    if tutor_engine is None:
-        raise HTTPException(503, "TutorEngine not fully loaded.")
-    try:
-        generator = tutor_engine.generate_response_stream(
-            session_id=request.session_id,
-            query=request.query,
-            force_mode="hint_generator"
-        )
-        response_text = get_final_response(generator)
-        session = tutor_engine.get_or_create_session(request.session_id)
-        return ChatResponse(
-            session_id=request.session_id,
-            tutor_mode="hint_generator",
-            topic=session.current_topic,
-            response=response_text
-        )
-    except Exception as e:
-        raise HTTPException(500, f"Error generating hint: {str(e)}")
+    return await stream_tutor_endpoint("hint", request, force_mode="hint_generator")
 
-@app.post("/review", response_model=ChatResponse, dependencies=[Depends(get_api_key)])
+@app.post("/review", dependencies=[Depends(get_api_key)])
 async def review(request: ChatRequest):
-    if tutor_engine is None:
-        raise HTTPException(503, "TutorEngine not fully loaded.")
-    try:
-        generator = tutor_engine.generate_response_stream(
-            session_id=request.session_id,
-            query=request.query,
-            force_mode="code_reviewer"
-        )
-        response_text = get_final_response(generator)
-        session = tutor_engine.get_or_create_session(request.session_id)
-        return ChatResponse(
-            session_id=request.session_id,
-            tutor_mode="code_reviewer",
-            topic=session.current_topic,
-            response=response_text
-        )
-    except Exception as e:
-        raise HTTPException(500, f"Error generating review: {str(e)}")
+    return await stream_tutor_endpoint("review", request, force_mode="code_reviewer")
 
-@app.post("/debug", response_model=ChatResponse, dependencies=[Depends(get_api_key)])
+@app.post("/debug", dependencies=[Depends(get_api_key)])
 async def debug(request: ChatRequest):
-    if tutor_engine is None:
-        raise HTTPException(503, "TutorEngine not fully loaded.")
-    try:
-        generator = tutor_engine.generate_response_stream(
-            session_id=request.session_id,
-            query=request.query,
-            force_mode="debugging_mentor"
-        )
-        response_text = get_final_response(generator)
-        session = tutor_engine.get_or_create_session(request.session_id)
-        return ChatResponse(
-            session_id=request.session_id,
-            tutor_mode="debugging_mentor",
-            topic=session.current_topic,
-            response=response_text
-        )
-    except Exception as e:
-        raise HTTPException(500, f"Error generating debugging guide: {str(e)}")
+    return await stream_tutor_endpoint("debug", request, force_mode="debugging_mentor")
 
-@app.post("/complexity", response_model=ChatResponse, dependencies=[Depends(get_api_key)])
+@app.post("/complexity", dependencies=[Depends(get_api_key)])
 async def complexity(request: ChatRequest):
-    if tutor_engine is None:
-        raise HTTPException(503, "TutorEngine not fully loaded.")
-    try:
-        generator = tutor_engine.generate_response_stream(
-            session_id=request.session_id,
-            query=request.query,
-            force_mode="complexity_analyst"
-        )
-        response_text = get_final_response(generator)
-        session = tutor_engine.get_or_create_session(request.session_id)
-        return ChatResponse(
-            session_id=request.session_id,
-            tutor_mode="complexity_analyst",
-            topic=session.current_topic,
-            response=response_text
-        )
-    except Exception as e:
-        raise HTTPException(500, f"Error analyzing complexity: {str(e)}")
+    return await stream_tutor_endpoint("complexity", request, force_mode="complexity_analyst")
 
 @app.get("/health")
 async def health():
@@ -202,7 +150,11 @@ async def health():
         "load_status": "complete",
         "model_hash": loader.model_hash,
         "adapter_hash": loader.adapter_hash,
-        "available_modes": list(SYSTEM_PROMPTS.keys())
+        "available_modes": list(SYSTEM_PROMPTS.keys()),
+        "retriever": "Local KNN Retriever",
+        "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+        "vector_store": "Lightweight NumPy Cosine Similarity",
+        "knowledge_base_size_docs": len(tutor_engine.vector_store.documents)
     }
 
 if __name__ == "__main__":

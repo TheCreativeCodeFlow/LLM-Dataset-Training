@@ -44,7 +44,8 @@ SYSTEM_PROMPTS = {
     ),
     "hint_generator": (
         "You are a DSA hint generator. Offer progressive hints: Hint 1 (High-level conceptual direction), "
-        "Hint 2 (Algorithmic guideline), Hint 3 (Pseudocode logic). NEVER output the actual solution code."
+        "Hint 2 (Algorithmic guideline), Hint 3 (Pseudocode logic). NEVER output the actual solution code "
+        "or full code implementation blocks under any circumstances unless the student explicitly requests the complete solution."
     )
 }
 
@@ -229,6 +230,10 @@ class TutorEngine:
         self.loader = ModelLoader(config_path)
         self.loader.discover_and_load()
         
+        # Load Local Vector Store for RAG
+        from scripts.vector_store import VectorStore
+        self.vector_store = VectorStore()
+        
         self.sessions: Dict[str, SessionMemory] = {}
         self.lock = threading.Lock()
 
@@ -292,7 +297,7 @@ class TutorEngine:
             
         return response
 
-    def generate_response_stream(self, session_id: str, query: str, force_mode: str = None, creative: bool = False, deterministic: bool = False, disable_adapter: bool = False) -> Generator[Dict[str, Any], None, None]:
+    def generate_response_stream(self, session_id: str, query: str, force_mode: str = None, creative: bool = False, deterministic: bool = False, disable_adapter: bool = False, use_rag: bool = True) -> Generator[Dict[str, Any], None, None]:
         """Generates streaming responses using Thread-safe TextIteratorStreamer."""
         # 1. Safety check
         is_safe, warning = self.perform_safety_check(query)
@@ -312,16 +317,52 @@ class TutorEngine:
         session.tutor_mode = mode
         system_prompt = SYSTEM_PROMPTS[mode]
         
-        if "array" in query.lower():
-            session.current_topic = "Arrays"
-        elif "string" in query.lower():
-            session.current_topic = "Strings"
-        elif "list" in query.lower():
-            session.current_topic = "Linked Lists"
-        elif "tree" in query.lower():
-            session.current_topic = "Trees"
-        elif "graph" in query.lower():
-            session.current_topic = "Graphs"
+        # RAG Local Retrieval
+        retrieval_latency = 0.0
+        retrieved_context = ""
+        results = []
+        if use_rag:
+            retrieval_start = time.time()
+            results = self.vector_store.retrieve(query, top_k=2)
+            retrieval_latency = time.time() - retrieval_start
+            
+            if len(results) > 0:
+                doc, score = results[0]
+                session.current_topic = doc["topic"]
+                
+                context_blocks = []
+                for d, s in results:
+                    block = (
+                        f"Verified Facts for Topic: {d['topic']}\n"
+                        f"- Concept: {d['concept']}\n"
+                        f"- Intuition: {d['intuition']}\n"
+                        f"- Pitfalls: {', '.join(d['common_mistakes'])}\n"
+                        f"- Edge Cases: {', '.join(d['edge_cases'])}\n"
+                        f"- Complexities: Time {d['complexities'].get('time', d['complexities'].get('search', 'N/A'))}, Space {d['complexities'].get('space', 'N/A')}\n"
+                        f"- Interview Advice: {d['interview_tips']}"
+                    )
+                    context_blocks.append(block)
+                retrieved_context = "\n\n".join(context_blocks)
+                
+        if not use_rag:
+            if "array" in query.lower():
+                session.current_topic = "Arrays"
+            elif "string" in query.lower():
+                session.current_topic = "Strings"
+            elif "list" in query.lower():
+                session.current_topic = "Linked Lists"
+            elif "tree" in query.lower():
+                session.current_topic = "Trees"
+            elif "graph" in query.lower():
+                session.current_topic = "Graphs"
+
+        if retrieved_context:
+            system_prompt = (
+                f"{system_prompt}\n\n"
+                f"Use the following retrieved high-quality DSA knowledge to answer the student's question accurately. "
+                f"Do not deviate from these verified facts:\n"
+                f"\"\"\"\n{retrieved_context}\n\"\"\""
+            )
             
         # 3. Build context
         messages = [{"role": "system", "content": system_prompt}]
@@ -394,6 +435,14 @@ class TutorEngine:
             
         full_response = "".join(response_chunks).strip()
         
+        # Extract complexities dynamically from RAG context
+        time_comp = "O(N) traversal or O(log N) binary search bounds"
+        space_comp = "O(1) auxiliary space optimization"
+        if len(results) > 0:
+            doc = results[0][0]
+            time_comp = doc["complexities"].get("time", doc["complexities"].get("search", "N/A"))
+            space_comp = doc["complexities"].get("space", "N/A")
+            
         # 6. Enrich structure (Concept, Reasoning, Complexity, Edge cases, Next Practice)
         enriched_response = (
             f"**[{mode.replace('_', ' ').title()}]**\n\n"
@@ -403,8 +452,8 @@ class TutorEngine:
             f"- We examined: '{query[:60]}...'\n"
             f"- We identify optimal approaches matching topic: {session.current_topic}.\n\n"
             f"### Complexity & Trade-offs\n"
-            f"- Time Complexity: O(N) traversal or O(log N) binary search bounds.\n"
-            f"- Space Complexity: O(1) auxiliary space optimization.\n\n"
+            f"- Time Complexity: {time_comp}\n"
+            f"- Space Complexity: {space_comp}\n\n"
             f"### Edge Cases & Common Mistakes\n"
             f"- Verify off-by-one indices.\n"
             f"- Check null or empty collection checks.\n\n"
@@ -426,7 +475,9 @@ class TutorEngine:
             "full_response": final_response,
             "metrics": {
                 "latency_seconds": time.time() - start_time,
-                "tokens_per_second": token_count / (time.time() - start_time) if (time.time() - start_time) > 0 else 0.0
+                "retrieval_latency_seconds": retrieval_latency,
+                "tokens_per_second": token_count / (time.time() - start_time) if (time.time() - start_time) > 0 else 0.0,
+                "retrieved_context": retrieved_context
             },
             "tutor_mode": mode,
             "topic": session.current_topic

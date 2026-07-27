@@ -1,0 +1,620 @@
+{
+  "documents": [
+    {
+      "topic": "Arrays",
+      "concept": "A contiguous block of memory storing elements of the same type under a single identifier.",
+      "intuition": "Like a row of numbered lockers next to each other where you can access any locker instantly using its index.",
+      "visual_explanation": "Indices: [0] -> [1] -> [2] -> [3]\nValues:  [10]    [20]    [30]    [40]",
+      "common_mistakes": [
+        "Off-by-one errors (accessing index len(arr) instead of len(arr)-1)",
+        "Iterating and modifying size dynamically without tracking indices"
+      ],
+      "edge_cases": [
+        "Empty array",
+        "Array with 1 element",
+        "Duplicate values",
+        "Negative indices in python"
+      ],
+      "complexities": {
+        "access": "O(1)",
+        "search": "O(N) linear, O(log N) if sorted binary",
+        "insertion": "O(N) worst case (shifting elements)",
+        "deletion": "O(N) worst case"
+      },
+      "interview_tips": "Mention contiguous memory cache locality. If array is sorted, think of Binary Search or Two Pointers.",
+      "practice_problems": [
+        "LeetCode 1: Two Sum",
+        "LeetCode 26: Remove Duplicates from Sorted Array"
+      ],
+      "references": [
+        "Introduction to Algorithms (CLRS)",
+        "Algorithm Design Manual"
+      ]
+    },
+    {
+      "topic": "Strings",
+      "concept": "A sequence of characters, often implemented as an array of characters under the hood.",
+      "intuition": "Like a train where each car holds a single letter. Immutable in languages like Java/Python, mutable in C++.",
+      "visual_explanation": "Index: [0] [1] [2] [3] [4]\nChar:  'h' 'e' 'l' 'l' 'o'",
+      "common_mistakes": [
+        "Creating strings inside loops (leading to O(N^2) time due to copies in immutable structures)",
+        "Ignoring case sensitivity or whitespace"
+      ],
+      "edge_cases": [
+        "Empty string (\"\")",
+        "String with spaces only",
+        "Anagrams/Palindromes of odd/even length"
+      ],
+      "complexities": {
+        "access": "O(1)",
+        "search": "O(N) linear, KMP is O(N+M)",
+        "concatenation": "O(N+M) (requires memory allocation for new string)"
+      },
+      "interview_tips": "If dealing with character counts or anagrams, use an array of size 26 or 128 as a lightweight frequency map.",
+      "practice_problems": [
+        "LeetCode 344: Reverse String",
+        "LeetCode 242: Valid Anagram"
+      ],
+      "references": [
+        "Programming Pearls",
+        "CLRS"
+      ]
+    },
+    {
+      "topic": "Hash Maps",
+      "concept": "A data structure that maps keys to values using a hashing function for near-instant access.",
+      "intuition": "Like a post office where your name hashes to a specific PO box index where your mail is kept.",
+      "visual_explanation": "Key -> Hash Function -> Array Index -> Value\n'apple' -> hash(x)%5 -> Index [3] -> 1.50",
+      "common_mistakes": [
+        "Forgetting key collision resolution (Chaining vs Open Addressing)",
+        "Modifying key objects while they are inside the map"
+      ],
+      "edge_cases": [
+        "Hash key collisions",
+        "Empty map checks",
+        "Resizing threshold triggers"
+      ],
+      "complexities": {
+        "insert": "O(1) average, O(N) worst case (rehashing)",
+        "delete": "O(1) average",
+        "lookup": "O(1) average"
+      },
+      "interview_tips": "Always discuss load factor and how collision resolution works (e.g. linked list chaining or linear probing).",
+      "practice_problems": [
+        "LeetCode 136: Single Number",
+        "LeetCode 387: First Unique Character in a String"
+      ],
+      "references": [
+        "The Art of Computer Programming (Knuth)"
+      ]
+    },
+    {
+      "topic": "Stack",
+      "concept": "A Last-In, First-Out (LIFO) linear data structure where elements are inserted and removed from the same end.",
+      "intuition": "Like a stack of dinner plates; you can only place a new plate on the top, and you must take the top plate off first.",
+      "visual_explanation": "Push [30] -> | 30 | (top)\n              | 20 |\n              | 10 | (bottom)",
+      "common_mistakes": [
+        "Calling pop() or peek() on an empty stack (Stack Underflow)",
+        "Recursion limit stack overflow during depth first searches"
+      ],
+      "edge_cases": [
+        "Empty stack",
+        "Stack with one element",
+        "Capacity limit overflow (fixed-size stacks)"
+      ],
+      "complexities": {
+        "push": "O(1)",
+        "pop": "O(1)",
+        "peek": "O(1)",
+        "search": "O(N)"
+      },
+      "interview_tips": "Use stacks for backtracking, balanced parentheses, prefix/postfix expressions, and simulating recursion.",
+      "practice_problems": [
+        "LeetCode 20: Valid Parentheses",
+        "LeetCode 155: Min Stack"
+      ],
+      "references": [
+        "Algorithms (Sedgewick)"
+      ]
+    },
+    {
+      "topic": "Queue",
+      "concept": "A First-In, First-Out (FIFO) linear data structure where elements are inserted at the rear (enqueue) and removed from the front (dequeue).",
+      "intuition": "Like a line at a grocery store checkout; the first person who gets in line is served first.",
+      "visual_explanation": "[Front] Dequeue <- [10] [20] [30] <- Enqueue [Rear]",
+      "common_mistakes": [
+        "Using a standard list for queues in Python (leads to O(N) dequeue because elements shift). Use collections.deque!",
+        "Forgetting to update rear/front pointers in custom array circular queues"
+      ],
+      "edge_cases": [
+        "Empty queue",
+        "Circular buffer overflow",
+        "Queue with 1 item"
+      ],
+      "complexities": {
+        "enqueue": "O(1)",
+        "dequeue": "O(1)",
+        "peek": "O(1)"
+      },
+      "interview_tips": "Used in Breadth-First Search (BFS), task scheduling, buffers, and message queues.",
+      "practice_problems": [
+        "LeetCode 225: Implement Stack using Queues",
+        "LeetCode 933: Number of Recent Calls"
+      ],
+      "references": [
+        "CLRS"
+      ]
+    },
+    {
+      "topic": "Linked List",
+      "concept": "A linear collection of data elements called nodes, where each node points to the next node in sequence.",
+      "intuition": "Like a scavenger hunt; you start at the first clue, and each clue tells you where to find the next clue.",
+      "visual_explanation": "[Head] -> [Val: 10 | Next] -> [Val: 20 | Next] -> [Val: 30 | Next: Null]",
+      "common_mistakes": [
+        "Losing node pointers during insertion/deletion, causing list disconnection",
+        "Dereferencing null pointer (`None.next`)"
+      ],
+      "edge_cases": [
+        "List is empty (head is Null)",
+        "Single element list",
+        "Cycles/loops in list",
+        "Deleting head node"
+      ],
+      "complexities": {
+        "access": "O(N)",
+        "search": "O(N)",
+        "insertion": "O(1) if head/tail is known, O(N) if searching position",
+        "deletion": "O(1) if node references are known"
+      },
+      "interview_tips": "Use a 'Dummy Node' at the head to simplify node additions/deletions. Think of Two Pointers (Slow/Fast) to find cycles or midpoints.",
+      "practice_problems": [
+        "LeetCode 206: Reverse Linked List",
+        "LeetCode 141: Linked List Cycle"
+      ],
+      "references": [
+        "CLRS",
+        "Cracking the Coding Interview"
+      ]
+    },
+    {
+      "topic": "Trees",
+      "concept": "A hierarchical data structure consisting of nodes connected by edges, with a single node designated as root.",
+      "intuition": "Like a corporate hierarchy tree or folder directories on your computer storage.",
+      "visual_explanation": "     [Root]\n    /      \\\n  [Left]  [Right]",
+      "common_mistakes": [
+        "Treating trees as lists or graphs (forgetting trees have no cycles and exactly one parent)",
+        "Forgetting leaf node termination base case in recursion"
+      ],
+      "edge_cases": [
+        "Empty tree (root is Null)",
+        "Skewed tree (essentially a linked list, degrading operations to O(N))",
+        "Tree with only root node"
+      ],
+      "complexities": {
+        "traversal": "O(N) (DFS/BFS visiting every node)",
+        "height_calculation": "O(N)"
+      },
+      "interview_tips": "Master Preorder, Inorder, and Postorder traversals. Inorder traversal of a BST visits nodes in sorted order.",
+      "practice_problems": [
+        "LeetCode 104: Maximum Depth of Binary Tree",
+        "LeetCode 94: Binary Tree Inorder Traversal"
+      ],
+      "references": [
+        "Algorithms (Sedgewick)",
+        "CLRS"
+      ]
+    },
+    {
+      "topic": "BST",
+      "concept": "A Binary Search Tree (BST) is a binary tree where left child nodes are smaller than parent, and right child nodes are larger.",
+      "intuition": "Allows divide-and-conquer searching; at each node, we discard half the remaining possibilities.",
+      "visual_explanation": "      [8]\n     /   \\\n   [3]   [10]\n   / \\\n [1] [6]",
+      "common_mistakes": [
+        "Assuming a binary tree is a BST without verifying all left descendants are smaller than parent (not just immediate left child)",
+        "Allowing tree to degrade into skewed linked list (Operations become O(N))"
+      ],
+      "edge_cases": [
+        "Empty BST",
+        "Inserting duplicate values",
+        "Skewed tree (elements inserted in sorted order)"
+      ],
+      "complexities": {
+        "search": "O(log N) average, O(N) worst case",
+        "insert": "O(log N) average, O(N) worst case",
+        "delete": "O(log N) average, O(N) worst case"
+      },
+      "interview_tips": "Inorder traversal visits elements in ascending order. Remember that deletion has three cases: leaf, single child, and double children (replace with successor).",
+      "practice_problems": [
+        "LeetCode 700: Search in a Binary Search Tree",
+        "LeetCode 98: Validate Binary Search Tree"
+      ],
+      "references": [
+        "CLRS"
+      ]
+    },
+    {
+      "topic": "AVL",
+      "concept": "A self-balancing Binary Search Tree where the heights of the left and right subtrees of any node differ by at most one.",
+      "intuition": "Like a tree that auto-rotates itself whenever it gets too heavy on one side to keep tree depth balanced.",
+      "visual_explanation": "Balance Factor = Height(Left) - Height(Right) in {-1, 0, 1}.\nRotations: LL, RR, LR, RL.",
+      "common_mistakes": [
+        "Forgetting to update node heights during rotations",
+        "Incorrectly determining rotation type (e.g. confusing LR with LL)"
+      ],
+      "edge_cases": [
+        "Empty tree",
+        "Single element tree",
+        "Deep updates that trigger cascading rotations up to the root"
+      ],
+      "complexities": {
+        "search": "O(log N) guaranteed",
+        "insert": "O(log N)",
+        "delete": "O(log N)"
+      },
+      "interview_tips": "Mention that AVL trees are more rigidly balanced than Red-Black trees, making lookups faster but insertions/deletions slightly more rotation-intensive.",
+      "practice_problems": [
+        "LeetCode 108: Convert Sorted Array to Binary Search Tree (leads to balanced tree)"
+      ],
+      "references": [
+        "Algorithms (Sedgewick)"
+      ]
+    },
+    {
+      "topic": "Heap",
+      "concept": "A complete binary tree that satisfies the heap property: Max-Heap (parent node is larger than children) or Min-Heap (parent is smaller).",
+      "intuition": "Like a leaderboard; the highest (or lowest) value is always at the top, and updating it takes logarithmic time.",
+      "visual_explanation": "Min-Heap:\n      [10]\n     /    \\\n   [15]   [30]\n   /  \\\n [40] [50]",
+      "common_mistakes": [
+        "Using a sorted list instead of a heap (O(N) insert instead of O(log N))",
+        "Attempting to index arbitrary elements in O(1) in a heap (heaps only guarantee top element access in O(1))"
+      ],
+      "edge_cases": [
+        "Empty heap",
+        "Single element heap",
+        "Extracting from heap of size 1"
+      ],
+      "complexities": {
+        "get_min_max": "O(1)",
+        "insert": "O(log N)",
+        "extract_min_max": "O(log N)",
+        "heapify": "O(N) linear construction"
+      },
+      "interview_tips": "Heaps are excellent for 'K-way merge', finding 'K-th largest/smallest elements', and scheduling algorithms.",
+      "practice_problems": [
+        "LeetCode 215: Kth Largest Element in an Array",
+        "LeetCode 703: Kth Largest Element in a Stream"
+      ],
+      "references": [
+        "CLRS"
+      ]
+    },
+    {
+      "topic": "Trie",
+      "concept": "An information retrieval tree (prefix tree) used to store associative arrays where keys are usually strings.",
+      "intuition": "Like search autocomplete; as you type letters, you traverse down a character path representing words.",
+      "visual_explanation": "       [root]\n        /  \\\n      'c'  'a'\n      /      \\\n    'a'      'n'\n    /         \n  't' (isWord=True)",
+      "common_mistakes": [
+        "Excessive memory consumption (creating 26-pointer arrays for empty nodes). Optimize with hashmap children!",
+        "Forgetting to mark `isWord=True` on completed words"
+      ],
+      "edge_cases": [
+        "Empty string insertion",
+        "Searching for prefix vs full word",
+        "Duplicate word insertion"
+      ],
+      "complexities": {
+        "insert": "O(L) where L is length of word",
+        "search": "O(L)",
+        "starts_with": "O(L)"
+      },
+      "interview_tips": "Great for auto-complete, spelling checkers, IP routing lookups, and prefix matches.",
+      "practice_problems": [
+        "LeetCode 208: Implement Trie (Prefix Tree)",
+        "LeetCode 211: Design Add and Search Words Data Structure"
+      ],
+      "references": [
+        "Algorithms (Sedgewick)"
+      ]
+    },
+    {
+      "topic": "Graphs",
+      "concept": "A collection of vertices (nodes) and edges connecting pairs of vertices.",
+      "intuition": "Like a social network where people are nodes and friendships are edges, or city maps with highways.",
+      "visual_explanation": "Adjacency List:\n[A] -> [B, C]\n[B] -> [A]\n[C] -> [A]",
+      "common_mistakes": [
+        "Infinite loops in traversal due to cycles (Must track visited nodes using a set!)",
+        "Confusing directed vs undirected graph structures"
+      ],
+      "edge_cases": [
+        "Disconnected components",
+        "Cycles",
+        "Self-loops",
+        "Empty graph"
+      ],
+      "complexities": {
+        "dfs": "O(V + E)",
+        "bfs": "O(V + E)",
+        "dijkstra": "O((V + E) log V)"
+      },
+      "interview_tips": "Use BFS for shortest paths in unweighted graphs. Use DFS for topological sorting and cycle detection.",
+      "practice_problems": [
+        "LeetCode 200: Number of Islands",
+        "LeetCode 207: Course Schedule"
+      ],
+      "references": [
+        "CLRS"
+      ]
+    },
+    {
+      "topic": "Union Find",
+      "concept": "A disjoint-set data structure that tracks partition of elements into mutually joint sets, supporting Union and Find operations.",
+      "intuition": "Like tracking who belongs to which social club, allowing you to merge clubs or check if two people belong to the same club instantly.",
+      "visual_explanation": "Roots: parent[i] = root.\nOptimize: Path Compression & Union by Rank.",
+      "common_mistakes": [
+        "Forgetting path compression in `find()` (degrades Find performance from O(alpha(N)) to O(N))",
+        "Merging sets without updates to Rank/Size"
+      ],
+      "edge_cases": [
+        "Single element queries",
+        "Union of elements already in the same set",
+        "Skewed trees of set parents"
+      ],
+      "complexities": {
+        "find": "O(alpha(N)) (nearly O(1) inverse Ackermann)",
+        "union": "O(alpha(N))"
+      },
+      "interview_tips": "Used in Kruskal's MST algorithm, cycle detection in undirected graphs, and social connection groups.",
+      "practice_problems": [
+        "LeetCode 547: Number of Provinces",
+        "LeetCode 684: Redundant Connection"
+      ],
+      "references": [
+        "CLRS"
+      ]
+    },
+    {
+      "topic": "Binary Search",
+      "concept": "An algorithm to search sorted arrays by repeatedly dividing search intervals in halves.",
+      "intuition": "If your target is larger than midpoint, search only the right side; else, search the left side.",
+      "visual_explanation": "L=0, R=4, Mid=2\nValues: [10, 20, 30, 40, 50] -> Target 40 -> Val[2]=30 < 40 -> L = Mid+1",
+      "common_mistakes": [
+        "Using `(L+R) // 2` which causes integer overflow in languages with fixed integer sizes. Use `L + (R-L) // 2`",
+        "Incorrect boundary updates (`L = Mid` or `R = Mid`, causing infinite loops)"
+      ],
+      "edge_cases": [
+        "Array of size 1",
+        "Target is not present",
+        "Duplicates in search range"
+      ],
+      "complexities": {
+        "time": "O(log N)",
+        "space": "O(1) iterative"
+      },
+      "interview_tips": "Always check if inputs are sorted. Remember binary search can also run on values (binary search on answer).",
+      "practice_problems": [
+        "LeetCode 704: Binary Search",
+        "LeetCode 34: Find First and Last Position of Element in Sorted Array"
+      ],
+      "references": [
+        "CLRS"
+      ]
+    },
+    {
+      "topic": "Sliding Window",
+      "concept": "A technique that performs operations on a specific window size of a sequence, shifting the window right.",
+      "intuition": "Like a security camera frame moving across a street; instead of recalculating the whole frame, you add elements entering from the right and subtract elements leaving from the left.",
+      "visual_explanation": "Window [1, 2, 3] 4 5 -> Sum = 6\nShift:  1 [2, 3, 4] 5 -> Sum = 6 - 1 + 4 = 9",
+      "common_mistakes": [
+        "Incorrect window boundary updates",
+        "Updating metrics before resizing the window pointers"
+      ],
+      "edge_cases": [
+        "Window size larger than array length",
+        "Empty array",
+        "Window size is 1"
+      ],
+      "complexities": {
+        "time": "O(N) (each element processed at most twice: once entering, once leaving)",
+        "space": "O(1) if tracking counts, O(K) if storing window elements"
+      },
+      "interview_tips": "Useful for subarray or substring queries matching constraint boundaries (e.g. longest substring, minimum sum subarray).",
+      "practice_problems": [
+        "LeetCode 3: Longest Substring Without Repeating Characters",
+        "LeetCode 209: Minimum Size Subarray Sum"
+      ],
+      "references": [
+        "Algorithm Design Manual"
+      ]
+    },
+    {
+      "topic": "Two Pointers",
+      "concept": "A technique using two index pointers to traverse a collection, often moving from ends toward center or in different directions.",
+      "intuition": "Like two hikers starting from opposite ends of a bridge and walking toward each other until they meet.",
+      "visual_explanation": "L -------->        <-------- R\n[10, 20, 30, 40, 50, 60] -> Sum target check.",
+      "common_mistakes": [
+        "Pointers crossing each other and looping infinitely",
+        "Index out of bounds on array edges"
+      ],
+      "edge_cases": [
+        "Array size < 2",
+        "Target sum is impossible",
+        "Array with negative numbers"
+      ],
+      "complexities": {
+        "time": "O(N)",
+        "space": "O(1)"
+      },
+      "interview_tips": "If array is sorted, Two Pointers can find target sums in linear time. Also useful for reversing sequences or in-place modifications.",
+      "practice_problems": [
+        "LeetCode 167: Two Sum II - Input Array Is Sorted",
+        "LeetCode 15: 3Sum"
+      ],
+      "references": [
+        "Cracking the Coding Interview"
+      ]
+    },
+    {
+      "topic": "Prefix Sum",
+      "concept": "A preprocessing technique where an array is converted into a cumulative sum array, allowing constant time range sum queries.",
+      "intuition": "Instead of recounting the cash in your wallet every time someone asks, you keep a running tally of how much you added at each step.",
+      "visual_explanation": "Array:  [3,  1,  2,  5]\nPrefix: [3,  4,  6, 11]\nRangeSum(1, 3) = Prefix[3] - Prefix[0] = 11 - 3 = 8",
+      "common_mistakes": [
+        "Off-by-one errors (failing to insert a 0 at index 0 of prefix array, which complicates query calculations starting from index 0)",
+        "Overwriting values incorrectly in mutable scenarios"
+      ],
+      "edge_cases": [
+        "Empty array",
+        "Queries targeting index 0",
+        "Array with negative numbers"
+      ],
+      "complexities": {
+        "preprocessing": "O(N)",
+        "query": "O(1)",
+        "space": "O(N) (or O(1) if modified in-place)"
+      },
+      "interview_tips": "Perfect for range sum queries. Also works for 2D grids (2D prefix sums).",
+      "practice_problems": [
+        "LeetCode 303: Range Sum Query - Immutable",
+        "LeetCode 560: Subarray Sum Equals K"
+      ],
+      "references": [
+        "Algorithms (Sedgewick)"
+      ]
+    },
+    {
+      "topic": "Greedy",
+      "concept": "An algorithmic paradigm that makes the locally optimal choice at each step with the hope of finding a global optimum.",
+      "intuition": "Taking the highest value coin available at each step to change money, which works for standard currencies but not all custom coin sets.",
+      "visual_explanation": "Decision point: take path with largest weight immediately, ignoring future weights.",
+      "common_mistakes": [
+        "Assuming greedy choices lead to globally optimal solutions (greedy fails on fractional knapsack or general graph traversals without validation)",
+        "Failing to prove greedy choice property correctness"
+      ],
+      "edge_cases": [
+        "Empty inputs",
+        "Negative values in optimization sets",
+        "Ties in optimal local decisions"
+      ],
+      "complexities": {
+        "time": "O(N log N) if sorting is required, O(N) otherwise",
+        "space": "O(1) or O(N) if tracking allocations"
+      },
+      "interview_tips": "Prove your greedy approach by induction or contradiction. If sorting elements by a ratio or size works, it's likely greedy.",
+      "practice_problems": [
+        "LeetCode 55: Jump Game",
+        "LeetCode 435: Non-overlapping Intervals"
+      ],
+      "references": [
+        "CLRS"
+      ]
+    },
+    {
+      "topic": "Dynamic Programming",
+      "concept": "An algorithmic technique that solves complex problems by breaking them into overlapping subproblems, solving each subproblem once, and storing solutions.",
+      "intuition": "If I ask you what 1+1+1+1+1 is, you count to 5. If I add another '+1', you remember the '5' and add 1 to get 6. You didn't recount from scratch!",
+      "visual_explanation": "Fib(N) = Fib(N-1) + Fib(N-2).\nMemoization (Top-down) or Tabulation (Bottom-up).",
+      "common_mistakes": [
+        "Recalculating subproblems without storing values (no memoization/tabulation, leading to exponential O(2^N) time)",
+        "Incorrect state transition relations"
+      ],
+      "edge_cases": [
+        "Base cases (N=0, N=1)",
+        "Negative values in state tables",
+        "Memory limits in large state dimensions"
+      ],
+      "complexities": {
+        "time": "O(Number of States * Transition Time)",
+        "space": "O(Number of States) (can often be optimized to O(1) space)"
+      },
+      "interview_tips": "Identify if the problem has 'Overlapping Subproblems' and 'Optimal Substructure'. Define the DP state table and transitions clearly.",
+      "practice_problems": [
+        "LeetCode 70: Climbing Stairs",
+        "LeetCode 322: Coin Change"
+      ],
+      "references": [
+        "CLRS",
+        "Algorithm Design Manual"
+      ]
+    },
+    {
+      "topic": "Recursion",
+      "concept": "A programming method where a function calls itself directly or indirectly to solve smaller instances of the same problem.",
+      "intuition": "Like Russian nesting dolls; you open a doll to find a smaller doll inside, until you reach the smallest doll (base case) and stop.",
+      "visual_explanation": "Fact(3) -> 3 * Fact(2) -> 2 * Fact(1) -> Base case: 1 -> unwind stack.",
+      "common_mistakes": [
+        "Forgetting the base case, causing infinite loops and Stack Overflow errors",
+        "Failing to make progress toward base case in recursive parameters"
+      ],
+      "edge_cases": [
+        "Inputs that trigger base case immediately",
+        "Recursive depth limits exceeded (Python default recursion limit is 1000)"
+      ],
+      "complexities": {
+        "time": "O(Branches^Depth)",
+        "space": "O(Depth) due to recursive call stack memory allocation"
+      },
+      "interview_tips": "Always identify the base case first. Draw the recursion tree to visualize call paths and complexity.",
+      "practice_problems": [
+        "LeetCode 509: Fibonacci Number",
+        "LeetCode 206: Reverse Linked List (Recursive)"
+      ],
+      "references": [
+        "Introduction to Algorithms"
+      ]
+    },
+    {
+      "topic": "Backtracking",
+      "concept": "A systematic method for searching all (or some) solutions to a problem, which builds candidates and abandons a candidate ('backtracks') as soon as it cannot lead to a valid solution.",
+      "intuition": "Like walking through a maze; when you hit a dead end, you walk back to the last intersection and try a different path.",
+      "visual_explanation": "Choose -> Explore -> Unchoose (backtrack state change).",
+      "common_mistakes": [
+        "Forgetting to undo the choice/state change after recursive call (failing to restore variables to their original state)",
+        "Failing to prune branches, leading to complete brute force search"
+      ],
+      "edge_cases": [
+        "Target is reached immediately",
+        "Empty input sets",
+        "No valid solutions exist"
+      ],
+      "complexities": {
+        "time": "O(N!) or O(2^N) in worst cases",
+        "space": "O(N) recursion stack"
+      },
+      "interview_tips": "Write down the state template: 1. Base Case (check solution), 2. Loop choices, 3. Make Choice, 4. Recurse, 5. Undo Choice.",
+      "practice_problems": [
+        "LeetCode 46: Permutations",
+        "LeetCode 78: Subsets"
+      ],
+      "references": [
+        "Algorithm Design Manual"
+      ]
+    },
+    {
+      "topic": "Bit Manipulation",
+      "concept": "An algorithmic technique that performs logical operations directly on the binary representation of integers.",
+      "intuition": "Directly flipping light switches (bits) on a control board instead of using complex decimal arithmetic operations.",
+      "visual_explanation": "x = 5 (0101)\ny = 3 (0011)\nx & y = 1 (0001)",
+      "common_mistakes": [
+        "Operator precedence errors (e.g. `x & 1 == 0` evaluates as `x & (1 == 0)` due to high precedence of comparison). Use parentheses: `(x & 1) == 0`",
+        "Forgetting integer bit limits (32-bit vs 64-bit systems)"
+      ],
+      "edge_cases": [
+        "Zero values",
+        "Negative numbers (Two's complement representation)",
+        "Overflow values"
+      ],
+      "complexities": {
+        "time": "O(1) constant time hardware operations",
+        "space": "O(1)"
+      },
+      "interview_tips": "XOR property: `a ^ a = 0` and `a ^ 0 = a`. Bit shifts: `x << 1` multiplies by 2, `x >> 1` divides by 2.",
+      "practice_problems": [
+        "LeetCode 191: Number of 1 Bits",
+        "LeetCode 136: Single Number"
+      ],
+      "references": [
+        "Hacker's Delight"
+      ]
+    }
+  ]
+}
