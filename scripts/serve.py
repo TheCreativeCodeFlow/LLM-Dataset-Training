@@ -151,10 +151,10 @@ async def health():
         "model_hash": loader.model_hash,
         "adapter_hash": loader.adapter_hash,
         "available_modes": list(SYSTEM_PROMPTS.keys()),
-        "retriever": "Local KNN Retriever",
-        "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
-        "vector_store": "Lightweight NumPy Cosine Similarity",
-        "knowledge_base_size_docs": len(tutor_engine.vector_store.documents)
+        "retriever": "Hybrid Chunks Retriever",
+        "embedding_model": "Pure Python TF-IDF Vectorizer",
+        "vector_store": "Lightweight NumPy Chunks Store",
+        "knowledge_base_size_docs": len(tutor_engine.vector_store.chunks)
     }
 
 if __name__ == "__main__":

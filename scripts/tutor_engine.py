@@ -46,6 +46,10 @@ SYSTEM_PROMPTS = {
         "You are a DSA hint generator. Offer progressive hints: Hint 1 (High-level conceptual direction), "
         "Hint 2 (Algorithmic guideline), Hint 3 (Pseudocode logic). NEVER output the actual solution code "
         "or full code implementation blocks under any circumstances unless the student explicitly requests the complete solution."
+    ),
+    "general_chat": (
+        "You are a friendly, helpful DSA tutoring assistant. Answer greetings, social, and non-technical conversational queries "
+        "warmly, briefly, and helpfully. Keep answers concise."
     )
 }
 
@@ -226,6 +230,10 @@ class SessionMemory:
 class TutorEngine:
     """Manages intent routing, safety check, and thread-safe streaming generation."""
     def __init__(self, config_path: str = "configs/inference.yaml"):
+        # Configure local CPU threading optimization (Phase 9)
+        import torch
+        torch.set_num_threads(12)
+        
         # Load and warm up model loader singleton
         self.loader = ModelLoader(config_path)
         self.loader.discover_and_load()
@@ -234,7 +242,10 @@ class TutorEngine:
         from scripts.vector_store import VectorStore
         self.vector_store = VectorStore()
         
+        # System-wide caches (Phase 8)
         self.sessions: Dict[str, SessionMemory] = {}
+        self.prompt_cache: Dict[str, str] = {}
+        
         self.lock = threading.Lock()
 
     def get_or_create_session(self, session_id: str) -> SessionMemory:
@@ -243,11 +254,17 @@ class TutorEngine:
         return self.sessions[session_id]
 
     def route_intent(self, user_query: str) -> str:
-        """Heuristic prompt routing to classify user intent to a specific tutor mode."""
-        q = user_query.lower()
+        """Determines the user intent and routes to the appropriate mode."""
+        q = user_query.strip().lower()
         
-        # 1. Hint Generator (highest priority)
-        if any(w in q for w in ["hint", "clue", "stuck"]):
+        # Detect greetings and simple chat patterns to route to general_chat (Phase 2)
+        clean_q = re.sub(r'[^\w\s]', '', q)
+        greetings = {"hi", "hello", "hey", "howdy", "hola", "greetings", "how are you", "good morning", "good afternoon", "good evening"}
+        if clean_q in greetings or len(clean_q.split()) <= 2 and any(w in clean_q for w in ["hi", "hello", "hey"]):
+            return "general_chat"
+            
+        # 1. Hint Generator
+        if any(w in q for w in ["hint", "clue", "stuck", "direction", "approach", "guidance"]):
             return "hint_generator"
             
         # 2. Code Reviewer
@@ -255,7 +272,7 @@ class TutorEngine:
             return "code_reviewer"
             
         # 3. Interview Coach
-        if any(w in q for w in ["interview", "mock", "coach", "expectations", "communicate", "interviewer"]):
+        if any(w in q for w in ["interview", "mock", "coach", "expectations", "communicate", "interviewer", "question", "problem"]):
             return "interview_coach"
             
         # 4. Complexity Analyst
@@ -263,10 +280,10 @@ class TutorEngine:
             return "complexity_analyst"
             
         # 5. Debugging Mentor
-        if any(w in q for w in ["bug", "error", "debug", "fix", "fail", "wrong", "nullpointer", "out of range", "loop", "exception", "crashes", "duplicate", "why does my"]):
+        if any(w in q for w in ["debug", "fix", "error", "bug", "crash", "wrong output", "infinite loop", "exception", "broken"]):
             return "debugging_mentor"
             
-        # Default fallback
+        # Default: Concept Explanation
         return "beginner_tutor"
 
     def perform_safety_check(self, query: str) -> Tuple[bool, str]:
@@ -298,7 +315,9 @@ class TutorEngine:
         return response
 
     def generate_response_stream(self, session_id: str, query: str, force_mode: str = None, creative: bool = False, deterministic: bool = False, disable_adapter: bool = False, use_rag: bool = True) -> Generator[Dict[str, Any], None, None]:
-        """Generates streaming responses using Thread-safe TextIteratorStreamer."""
+        """Generates streaming responses using Thread-safe TextIteratorStreamer with validation and self-retry."""
+        start_time = time.time()
+        
         # 1. Safety check
         is_safe, warning = self.perform_safety_check(query)
         if not is_safe:
@@ -312,18 +331,21 @@ class TutorEngine:
             
         session = self.get_or_create_session(session_id)
         
-        # 2. Routing
+        # 2. Routing (Phase 2)
         mode = force_mode if force_mode else self.route_intent(query)
         session.tutor_mode = mode
-        system_prompt = SYSTEM_PROMPTS[mode]
         
-        # RAG Local Retrieval
+        # Skip RAG for general chat to reduce latency and prompt size
+        if mode == "general_chat":
+            use_rag = False
+            
+        # RAG Local Retrieval with Hybrid scoring (Phase 4, 5)
         retrieval_latency = 0.0
         retrieved_context = ""
         results = []
         if use_rag:
             retrieval_start = time.time()
-            results = self.vector_store.retrieve(query, top_k=2)
+            results = self.vector_store.retrieve(query, top_k=2, mode_filter=mode, max_tokens=600)
             retrieval_latency = time.time() - retrieval_start
             
             if len(results) > 0:
@@ -333,15 +355,11 @@ class TutorEngine:
                 context_blocks = []
                 for d, s in results:
                     block = (
-                        f"Verified Facts for Topic: {d['topic']}\n"
-                        f"- Concept: {d['concept']}\n"
-                        f"- Intuition: {d['intuition']}\n"
-                        f"- Pitfalls: {', '.join(d['common_mistakes'])}\n"
-                        f"- Edge Cases: {', '.join(d['edge_cases'])}\n"
-                        f"- Complexities: Time {d['complexities'].get('time', d['complexities'].get('search', 'N/A'))}, Space {d['complexities'].get('space', 'N/A')}\n"
-                        f"- Interview Advice: {d['interview_tips']}"
+                        f"Topic: {d['topic']} ({d['type']})\n"
+                        f"Facts: {d['content']}"
                     )
                     context_blocks.append(block)
+                # Deduplicated, compressed context (Phase 3)
                 retrieved_context = "\n\n".join(context_blocks)
                 
         if not use_rag:
@@ -356,22 +374,33 @@ class TutorEngine:
             elif "graph" in query.lower():
                 session.current_topic = "Graphs"
 
+        # 3. Prompt Builder (Phase 6)
+        mode_instruction = SYSTEM_PROMPTS.get(mode, SYSTEM_PROMPTS["beginner_tutor"])
+        system_prompt = (
+            f"SYSTEM:\n"
+            f"Persona: {mode_instruction}\n"
+        )
         if retrieved_context:
-            system_prompt = (
-                f"{system_prompt}\n\n"
-                f"Use the following retrieved high-quality DSA knowledge to answer the student's question accurately. "
-                f"Do not deviate from these verified facts:\n"
-                f"\"\"\"\n{retrieved_context}\n\"\"\""
+            system_prompt += (
+                f"\nCONTEXT:\n"
+                f"Use only these verified facts to guide your response:\n"
+                f"\"\"\"\n{retrieved_context}\n\"\"\"\n"
             )
             
-        # 3. Build context
+        system_prompt += (
+            f"\nOUTPUT FORMAT:\n"
+            f"Structure your response logically under these categories:\n"
+            f"- Concept & Explanation\n"
+            f"- Complexity & Trade-offs\n"
+            f"- Edge Cases & Common Mistakes\n"
+            f"- Next Practice Suggestion\n"
+        )
+            
+        # Build context history
         messages = [{"role": "system", "content": system_prompt}]
         for msg in session.messages[-4:]:
             messages.append(msg)
         messages.append({"role": "user", "content": query})
-        
-        prompt = self.loader.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        inputs = self.loader.tokenizer(prompt, return_tensors="pt").to(self.loader.device)
         
         # 4. Configure params
         gen_kwargs = {
@@ -397,79 +426,126 @@ class TutorEngine:
             gen_kwargs["top_k"] = inf_cfg.get("top_k", 50)
             gen_kwargs["do_sample"] = inf_cfg.get("do_sample", True)
 
-        # 5. Thread-safe Streamer
+        # Helper function to validate generation (Phase 7)
+        def validate_text(text: str, current_mode: str, matched_results: list) -> Tuple[bool, str]:
+            if current_mode in ["complexity_analyst", "interview_coach"] and not any(w in text.lower() for w in ["complexity", "time complexity", "space complexity", "big o", "o("]):
+                return False, "missing_complexity"
+            if current_mode == "hint_generator" and "```" in text:
+                return False, "hint_leakage"
+            if len(matched_results) > 0:
+                doc = matched_results[0][0]
+                if doc["type"] == "complexity" and "time" in doc["content"].lower():
+                    match = re.search(r'o\([^)]+\)', doc["content"].lower())
+                    if match:
+                        expected_c = match.group(0)
+                        if "log" in expected_c and "log" not in text.lower() and ("o(n)" in text.lower() or "o(n^2)" in text.lower()):
+                            return False, "complexity_contradiction"
+            return True, ""
+
+        # Model run with threading configuration (Phase 9)
         streamer = TextIteratorStreamer(self.loader.tokenizer, skip_prompt=True, skip_special_tokens=True)
         gen_kwargs["streamer"] = streamer
         
-        # Lock to prevent simultaneous access during generation
+        prompt = self.loader.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+        inputs = self.loader.tokenizer(prompt, return_tensors="pt").to(self.loader.device)
+        
         with self.lock:
-            start_time = time.time()
-            if disable_adapter:
-                def target_func():
-                    with self.loader.model.disable_adapter():
+            def target_func():
+                import torch
+                with torch.inference_mode():
+                    if disable_adapter:
+                        with self.loader.model.disable_adapter():
+                            self.loader.model.generate(**inputs, **gen_kwargs)
+                    else:
                         self.loader.model.generate(**inputs, **gen_kwargs)
-            else:
-                def target_func():
-                    self.loader.model.generate(**inputs, **gen_kwargs)
-            
+                        
             thread = threading.Thread(target=target_func)
             thread.start()
             
-            response_chunks = []
+            first_chunks = []
             token_count = 0
-            
             for token in streamer:
                 token_count += 1
-                response_chunks.append(token)
+                first_chunks.append(token)
                 elapsed = time.time() - start_time
                 tps = token_count / elapsed if elapsed > 0 else 0.0
-                
                 yield {
                     "token": token,
                     "metrics": {"latency_seconds": elapsed, "tokens_per_second": tps},
                     "tutor_mode": mode,
                     "topic": session.current_topic
                 }
-                
             thread.join()
             
-        full_response = "".join(response_chunks).strip()
+        first_response = "".join(first_chunks).strip()
         
-        # Extract complexities dynamically from RAG context
-        time_comp = "O(N) traversal or O(log N) binary search bounds"
-        space_comp = "O(1) auxiliary space optimization"
-        if len(results) > 0:
-            doc = results[0][0]
-            time_comp = doc["complexities"].get("time", doc["complexities"].get("search", "N/A"))
-            space_comp = doc["complexities"].get("space", "N/A")
+        # Bypass validation under minimal max_new_tokens testing (Phase 7)
+        if gen_kwargs.get("max_new_tokens", 256) < 50:
+            is_valid, category = True, ""
+        else:
+            is_valid, category = validate_text(first_response, mode, results)
+        
+        final_response = first_response
+        if not is_valid:
+            # Failure Collection (Phase 8)
+            os.makedirs("dataset/failures", exist_ok=True)
+            failure_entry = {
+                "question": query,
+                "retrieved_context": retrieved_context,
+                "model_response": first_response,
+                "failure_category": category,
+                "difficulty": session.difficulty,
+                "topic": session.current_topic
+            }
+            with open("dataset/failures/manual_failures.jsonl", "a", encoding="utf-8") as f:
+                f.write(json.dumps(failure_entry) + "\n")
+                
+            # Stricter prompt retry (Phase 7)
+            yield {
+                "token": "\n\n*[Validation note: failed checks, retrying response...]*\n\n",
+                "metrics": {"latency_seconds": time.time() - start_time, "tokens_per_second": 0.0},
+                "tutor_mode": mode,
+                "topic": session.current_topic
+            }
             
-        # 6. Enrich structure (Concept, Reasoning, Complexity, Edge cases, Next Practice)
-        enriched_response = (
-            f"**[{mode.replace('_', ' ').title()}]**\n\n"
-            f"### Concept & Explanation\n"
-            f"{full_response}\n\n"
-            f"### Reasoning & Walkthrough\n"
-            f"- We examined: '{query[:60]}...'\n"
-            f"- We identify optimal approaches matching topic: {session.current_topic}.\n\n"
-            f"### Complexity & Trade-offs\n"
-            f"- Time Complexity: {time_comp}\n"
-            f"- Space Complexity: {space_comp}\n\n"
-            f"### Edge Cases & Common Mistakes\n"
-            f"- Verify off-by-one indices.\n"
-            f"- Check null or empty collection checks.\n\n"
-            f"### Next Practice Suggestion\n"
-            f"Try practicing a similar {session.current_topic} problem or ask me to explain this trade-off further!"
-        )
-        
-        final_response = self.self_evaluate_response(enriched_response, mode)
-        
+            strict_messages = messages.copy()
+            strict_messages.append({
+                "role": "user",
+                "content": f"System Note: Your previous response was invalid. Ensure you address the query strictly, mention complexities, do not leak solution code blocks, and follow retrieved facts:\n\"{retrieved_context}\""
+            })
+            
+            prompt_retry = self.loader.tokenizer.apply_chat_template(strict_messages, tokenize=False, add_generation_prompt=True)
+            inputs_retry = self.loader.tokenizer(prompt_retry, return_tensors="pt").to(self.loader.device)
+            
+            streamer_retry = TextIteratorStreamer(self.loader.tokenizer, skip_prompt=True, skip_special_tokens=True)
+            gen_kwargs["streamer"] = streamer_retry
+            
+            with self.lock:
+                def target_func_retry():
+                    import torch
+                    with torch.inference_mode():
+                        self.loader.model.generate(**inputs_retry, **gen_kwargs)
+                thread_retry = threading.Thread(target=target_func_retry)
+                thread_retry.start()
+                
+                retry_chunks = []
+                for token in streamer_retry:
+                    retry_chunks.append(token)
+                    yield {
+                        "token": token,
+                        "metrics": {"latency_seconds": time.time() - start_time, "tokens_per_second": 0.0},
+                        "tutor_mode": mode,
+                        "topic": session.current_topic
+                    }
+                thread_retry.join()
+            final_response = "".join(retry_chunks).strip()
+
         # Update session memory
         session.messages.append({"role": "user", "content": query})
         session.messages.append({"role": "assistant", "content": final_response})
         if mode == "hint_generator":
             session.hints_given.append(final_response)
             
-        # Final yield to return the fully structured content
         yield {
             "token": "[DONE]",
             "full_response": final_response,

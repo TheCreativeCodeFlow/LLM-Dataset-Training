@@ -1,0 +1,1793 @@
+[
+  {
+    "chunk_id": "arrays_concept",
+    "topic": "Arrays",
+    "difficulty": "easy",
+    "type": "concept",
+    "keywords": [
+      "arrays",
+      "block",
+      "concept",
+      "contiguous",
+      "elements",
+      "identifier",
+      "intuition",
+      "memory",
+      "same",
+      "single",
+      "storing",
+      "type",
+      "under"
+    ],
+    "content": "Topic: Arrays. Concept: A contiguous block of memory storing elements of the same type under a single identifier.. Intuition: Like a row of numbered lockers next to each other where you can access any locker instantly using its index."
+  },
+  {
+    "chunk_id": "arrays_complexity",
+    "topic": "Arrays",
+    "difficulty": "easy",
+    "type": "complexity",
+    "keywords": [
+      "arrays",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Arrays complexities. Time Complexity: O(N) linear, O(log N) if sorted binary. Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "arrays_mistake",
+    "topic": "Arrays",
+    "difficulty": "easy",
+    "type": "mistake",
+    "keywords": [
+      "arrays",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Arrays common mistakes & pitfalls: Off-by-one errors (accessing index len(arr) instead of len(arr)-1). Iterating and modifying size dynamically without tracking indices."
+  },
+  {
+    "chunk_id": "arrays_edge_case",
+    "topic": "Arrays",
+    "difficulty": "easy",
+    "type": "edge_case",
+    "keywords": [
+      "arrays",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Arrays edge cases: Empty array. Array with 1 element. Duplicate values. Negative indices in python."
+  },
+  {
+    "chunk_id": "arrays_interview",
+    "topic": "Arrays",
+    "difficulty": "easy",
+    "type": "interview",
+    "keywords": [
+      "arrays",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Arrays interview tips: Mention contiguous memory cache locality. If array is sorted, think of Binary Search or Two Pointers.. Practice Problems: LeetCode 1: Two Sum, LeetCode 26: Remove Duplicates from Sorted Array."
+  },
+  {
+    "chunk_id": "strings_concept",
+    "topic": "Strings",
+    "difficulty": "easy",
+    "type": "concept",
+    "keywords": [
+      "array",
+      "characters",
+      "concept",
+      "hood",
+      "implemented",
+      "intuition",
+      "often",
+      "sequence",
+      "strings",
+      "under"
+    ],
+    "content": "Topic: Strings. Concept: A sequence of characters, often implemented as an array of characters under the hood.. Intuition: Like a train where each car holds a single letter. Immutable in languages like Java/Python, mutable in C++."
+  },
+  {
+    "chunk_id": "strings_complexity",
+    "topic": "Strings",
+    "difficulty": "easy",
+    "type": "complexity",
+    "keywords": [
+      "strings",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Strings complexities. Time Complexity: O(N) linear, KMP is O(N+M). Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "strings_mistake",
+    "topic": "Strings",
+    "difficulty": "easy",
+    "type": "mistake",
+    "keywords": [
+      "strings",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Strings common mistakes & pitfalls: Creating strings inside loops (leading to O(N^2) time due to copies in immutable structures). Ignoring case sensitivity or whitespace."
+  },
+  {
+    "chunk_id": "strings_edge_case",
+    "topic": "Strings",
+    "difficulty": "easy",
+    "type": "edge_case",
+    "keywords": [
+      "strings",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Strings edge cases: Empty string (\"\"). String with spaces only. Anagrams/Palindromes of odd/even length."
+  },
+  {
+    "chunk_id": "strings_interview",
+    "topic": "Strings",
+    "difficulty": "easy",
+    "type": "interview",
+    "keywords": [
+      "strings",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Strings interview tips: If dealing with character counts or anagrams, use an array of size 26 or 128 as a lightweight frequency map.. Practice Problems: LeetCode 344: Reverse String, LeetCode 242: Valid Anagram."
+  },
+  {
+    "chunk_id": "hash_maps_concept",
+    "topic": "Hash Maps",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "access",
+      "concept",
+      "data",
+      "function",
+      "hash maps",
+      "hashing",
+      "instant",
+      "intuition",
+      "keys",
+      "maps",
+      "near",
+      "structure",
+      "using"
+    ],
+    "content": "Topic: Hash Maps. Concept: A data structure that maps keys to values using a hashing function for near-instant access.. Intuition: Like a post office where your name hashes to a specific PO box index where your mail is kept."
+  },
+  {
+    "chunk_id": "hash_maps_complexity",
+    "topic": "Hash Maps",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "hash maps",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Hash Maps complexities. Time Complexity: N/A. Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "hash_maps_mistake",
+    "topic": "Hash Maps",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "hash maps",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Hash Maps common mistakes & pitfalls: Forgetting key collision resolution (Chaining vs Open Addressing). Modifying key objects while they are inside the map."
+  },
+  {
+    "chunk_id": "hash_maps_edge_case",
+    "topic": "Hash Maps",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "hash maps",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Hash Maps edge cases: Hash key collisions. Empty map checks. Resizing threshold triggers."
+  },
+  {
+    "chunk_id": "hash_maps_interview",
+    "topic": "Hash Maps",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "hash maps",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Hash Maps interview tips: Always discuss load factor and how collision resolution works (e.g. linked list chaining or linear probing).. Practice Problems: LeetCode 136: Single Number, LeetCode 387: First Unique Character in a String."
+  },
+  {
+    "chunk_id": "stack_concept",
+    "topic": "Stack",
+    "difficulty": "easy",
+    "type": "concept",
+    "keywords": [
+      "concept",
+      "data",
+      "elements",
+      "end",
+      "first",
+      "inserted",
+      "intuition",
+      "last",
+      "lifo",
+      "linear",
+      "out",
+      "removed",
+      "stack"
+    ],
+    "content": "Topic: Stack. Concept: A Last-In, First-Out (LIFO) linear data structure where elements are inserted and removed from the same end.. Intuition: Like a stack of dinner plates; you can only place a new plate on the top, and you must take the top plate off first."
+  },
+  {
+    "chunk_id": "stack_complexity",
+    "topic": "Stack",
+    "difficulty": "easy",
+    "type": "complexity",
+    "keywords": [
+      "stack",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Stack complexities. Time Complexity: O(N). Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "stack_mistake",
+    "topic": "Stack",
+    "difficulty": "easy",
+    "type": "mistake",
+    "keywords": [
+      "stack",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Stack common mistakes & pitfalls: Calling pop() or peek() on an empty stack (Stack Underflow). Recursion limit stack overflow during depth first searches."
+  },
+  {
+    "chunk_id": "stack_edge_case",
+    "topic": "Stack",
+    "difficulty": "easy",
+    "type": "edge_case",
+    "keywords": [
+      "stack",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Stack edge cases: Empty stack. Stack with one element. Capacity limit overflow (fixed-size stacks)."
+  },
+  {
+    "chunk_id": "stack_interview",
+    "topic": "Stack",
+    "difficulty": "easy",
+    "type": "interview",
+    "keywords": [
+      "stack",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Stack interview tips: Use stacks for backtracking, balanced parentheses, prefix/postfix expressions, and simulating recursion.. Practice Problems: LeetCode 20: Valid Parentheses, LeetCode 155: Min Stack."
+  },
+  {
+    "chunk_id": "queue_concept",
+    "topic": "Queue",
+    "difficulty": "easy",
+    "type": "concept",
+    "keywords": [
+      "concept",
+      "data",
+      "dequeue",
+      "elements",
+      "enqueue",
+      "fifo",
+      "first",
+      "front",
+      "inserted",
+      "intuition",
+      "linear",
+      "out",
+      "queue"
+    ],
+    "content": "Topic: Queue. Concept: A First-In, First-Out (FIFO) linear data structure where elements are inserted at the rear (enqueue) and removed from the front (dequeue).. Intuition: Like a line at a grocery store checkout; the first person who gets in line is served first."
+  },
+  {
+    "chunk_id": "queue_complexity",
+    "topic": "Queue",
+    "difficulty": "easy",
+    "type": "complexity",
+    "keywords": [
+      "queue",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Queue complexities. Time Complexity: N/A. Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "queue_mistake",
+    "topic": "Queue",
+    "difficulty": "easy",
+    "type": "mistake",
+    "keywords": [
+      "queue",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Queue common mistakes & pitfalls: Using a standard list for queues in Python (leads to O(N) dequeue because elements shift). Use collections.deque!. Forgetting to update rear/front pointers in custom array circular queues."
+  },
+  {
+    "chunk_id": "queue_edge_case",
+    "topic": "Queue",
+    "difficulty": "easy",
+    "type": "edge_case",
+    "keywords": [
+      "queue",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Queue edge cases: Empty queue. Circular buffer overflow. Queue with 1 item."
+  },
+  {
+    "chunk_id": "queue_interview",
+    "topic": "Queue",
+    "difficulty": "easy",
+    "type": "interview",
+    "keywords": [
+      "queue",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Queue interview tips: Used in Breadth-First Search (BFS), task scheduling, buffers, and message queues.. Practice Problems: LeetCode 225: Implement Stack using Queues, LeetCode 933: Number of Recent Calls."
+  },
+  {
+    "chunk_id": "linked_list_concept",
+    "topic": "Linked List",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "called",
+      "collection",
+      "concept",
+      "data",
+      "each",
+      "elements",
+      "intuition",
+      "linear",
+      "linked list",
+      "next",
+      "node",
+      "nodes",
+      "points"
+    ],
+    "content": "Topic: Linked List. Concept: A linear collection of data elements called nodes, where each node points to the next node in sequence.. Intuition: Like a scavenger hunt; you start at the first clue, and each clue tells you where to find the next clue."
+  },
+  {
+    "chunk_id": "linked_list_complexity",
+    "topic": "Linked List",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "linked list",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Linked List complexities. Time Complexity: O(N). Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "linked_list_mistake",
+    "topic": "Linked List",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "linked list",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Linked List common mistakes & pitfalls: Losing node pointers during insertion/deletion, causing list disconnection. Dereferencing null pointer (`None.next`)."
+  },
+  {
+    "chunk_id": "linked_list_edge_case",
+    "topic": "Linked List",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "linked list",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Linked List edge cases: List is empty (head is Null). Single element list. Cycles/loops in list. Deleting head node."
+  },
+  {
+    "chunk_id": "linked_list_interview",
+    "topic": "Linked List",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "linked list",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Linked List interview tips: Use a 'Dummy Node' at the head to simplify node additions/deletions. Think of Two Pointers (Slow/Fast) to find cycles or midpoints.. Practice Problems: LeetCode 206: Reverse Linked List, LeetCode 141: Linked List Cycle."
+  },
+  {
+    "chunk_id": "trees_concept",
+    "topic": "Trees",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "concept",
+      "connected",
+      "consisting",
+      "data",
+      "designated",
+      "edges",
+      "hierarchical",
+      "intuition",
+      "node",
+      "nodes",
+      "root",
+      "single",
+      "trees"
+    ],
+    "content": "Topic: Trees. Concept: A hierarchical data structure consisting of nodes connected by edges, with a single node designated as root.. Intuition: Like a corporate hierarchy tree or folder directories on your computer storage."
+  },
+  {
+    "chunk_id": "trees_complexity",
+    "topic": "Trees",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "trees",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Trees complexities. Time Complexity: N/A. Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "trees_mistake",
+    "topic": "Trees",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "trees",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Trees common mistakes & pitfalls: Treating trees as lists or graphs (forgetting trees have no cycles and exactly one parent). Forgetting leaf node termination base case in recursion."
+  },
+  {
+    "chunk_id": "trees_edge_case",
+    "topic": "Trees",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "trees",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Trees edge cases: Empty tree (root is Null). Skewed tree (essentially a linked list, degrading operations to O(N)). Tree with only root node."
+  },
+  {
+    "chunk_id": "trees_interview",
+    "topic": "Trees",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "trees",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Trees interview tips: Master Preorder, Inorder, and Postorder traversals. Inorder traversal of a BST visits nodes in sorted order.. Practice Problems: LeetCode 104: Maximum Depth of Binary Tree, LeetCode 94: Binary Tree Inorder Traversal."
+  },
+  {
+    "chunk_id": "bst_concept",
+    "topic": "BST",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "binary",
+      "bst",
+      "child",
+      "concept",
+      "intuition",
+      "larger",
+      "left",
+      "nodes",
+      "parent",
+      "right",
+      "search",
+      "smaller"
+    ],
+    "content": "Topic: BST. Concept: A Binary Search Tree (BST) is a binary tree where left child nodes are smaller than parent, and right child nodes are larger.. Intuition: Allows divide-and-conquer searching; at each node, we discard half the remaining possibilities."
+  },
+  {
+    "chunk_id": "bst_complexity",
+    "topic": "BST",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "bst",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: BST complexities. Time Complexity: O(log N) average, O(N) worst case. Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "bst_mistake",
+    "topic": "BST",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "bst",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: BST common mistakes & pitfalls: Assuming a binary tree is a BST without verifying all left descendants are smaller than parent (not just immediate left child). Allowing tree to degrade into skewed linked list (Operations become O(N))."
+  },
+  {
+    "chunk_id": "bst_edge_case",
+    "topic": "BST",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "bst",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: BST edge cases: Empty BST. Inserting duplicate values. Skewed tree (elements inserted in sorted order)."
+  },
+  {
+    "chunk_id": "bst_interview",
+    "topic": "BST",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "bst",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: BST interview tips: Inorder traversal visits elements in ascending order. Remember that deletion has three cases: leaf, single child, and double children (replace with successor).. Practice Problems: LeetCode 700: Search in a Binary Search Tree, LeetCode 98: Validate Binary Search Tree."
+  },
+  {
+    "chunk_id": "avl_concept",
+    "topic": "AVL",
+    "difficulty": "hard",
+    "type": "concept",
+    "keywords": [
+      "any",
+      "avl",
+      "balancing",
+      "binary",
+      "concept",
+      "differ",
+      "heights",
+      "intuition",
+      "left",
+      "most",
+      "node",
+      "one",
+      "right"
+    ],
+    "content": "Topic: AVL. Concept: A self-balancing Binary Search Tree where the heights of the left and right subtrees of any node differ by at most one.. Intuition: Like a tree that auto-rotates itself whenever it gets too heavy on one side to keep tree depth balanced."
+  },
+  {
+    "chunk_id": "avl_complexity",
+    "topic": "AVL",
+    "difficulty": "hard",
+    "type": "complexity",
+    "keywords": [
+      "avl",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: AVL complexities. Time Complexity: O(log N) guaranteed. Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "avl_mistake",
+    "topic": "AVL",
+    "difficulty": "hard",
+    "type": "mistake",
+    "keywords": [
+      "avl",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: AVL common mistakes & pitfalls: Forgetting to update node heights during rotations. Incorrectly determining rotation type (e.g. confusing LR with LL)."
+  },
+  {
+    "chunk_id": "avl_edge_case",
+    "topic": "AVL",
+    "difficulty": "hard",
+    "type": "edge_case",
+    "keywords": [
+      "avl",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: AVL edge cases: Empty tree. Single element tree. Deep updates that trigger cascading rotations up to the root."
+  },
+  {
+    "chunk_id": "avl_interview",
+    "topic": "AVL",
+    "difficulty": "hard",
+    "type": "interview",
+    "keywords": [
+      "avl",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: AVL interview tips: Mention that AVL trees are more rigidly balanced than Red-Black trees, making lookups faster but insertions/deletions slightly more rotation-intensive.. Practice Problems: LeetCode 108: Convert Sorted Array to Binary Search Tree (leads to balanced tree)."
+  },
+  {
+    "chunk_id": "heap_concept",
+    "topic": "Heap",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "binary",
+      "children",
+      "complete",
+      "concept",
+      "heap",
+      "intuition",
+      "larger",
+      "max",
+      "min",
+      "node",
+      "parent",
+      "property"
+    ],
+    "content": "Topic: Heap. Concept: A complete binary tree that satisfies the heap property: Max-Heap (parent node is larger than children) or Min-Heap (parent is smaller).. Intuition: Like a leaderboard; the highest (or lowest) value is always at the top, and updating it takes logarithmic time."
+  },
+  {
+    "chunk_id": "heap_complexity",
+    "topic": "Heap",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "heap",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Heap complexities. Time Complexity: N/A. Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "heap_mistake",
+    "topic": "Heap",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "heap",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Heap common mistakes & pitfalls: Using a sorted list instead of a heap (O(N) insert instead of O(log N)). Attempting to index arbitrary elements in O(1) in a heap (heaps only guarantee top element access in O(1))."
+  },
+  {
+    "chunk_id": "heap_edge_case",
+    "topic": "Heap",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "heap",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Heap edge cases: Empty heap. Single element heap. Extracting from heap of size 1."
+  },
+  {
+    "chunk_id": "heap_interview",
+    "topic": "Heap",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "heap",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Heap interview tips: Heaps are excellent for 'K-way merge', finding 'K-th largest/smallest elements', and scheduling algorithms.. Practice Problems: LeetCode 215: Kth Largest Element in an Array, LeetCode 703: Kth Largest Element in a Stream."
+  },
+  {
+    "chunk_id": "trie_concept",
+    "topic": "Trie",
+    "difficulty": "hard",
+    "type": "concept",
+    "keywords": [
+      "arrays",
+      "associative",
+      "concept",
+      "information",
+      "intuition",
+      "keys",
+      "prefix",
+      "retrieval",
+      "store",
+      "strings",
+      "tree",
+      "trie",
+      "used"
+    ],
+    "content": "Topic: Trie. Concept: An information retrieval tree (prefix tree) used to store associative arrays where keys are usually strings.. Intuition: Like search autocomplete; as you type letters, you traverse down a character path representing words."
+  },
+  {
+    "chunk_id": "trie_complexity",
+    "topic": "Trie",
+    "difficulty": "hard",
+    "type": "complexity",
+    "keywords": [
+      "trie",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Trie complexities. Time Complexity: O(L). Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "trie_mistake",
+    "topic": "Trie",
+    "difficulty": "hard",
+    "type": "mistake",
+    "keywords": [
+      "trie",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Trie common mistakes & pitfalls: Excessive memory consumption (creating 26-pointer arrays for empty nodes). Optimize with hashmap children!. Forgetting to mark `isWord=True` on completed words."
+  },
+  {
+    "chunk_id": "trie_edge_case",
+    "topic": "Trie",
+    "difficulty": "hard",
+    "type": "edge_case",
+    "keywords": [
+      "trie",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Trie edge cases: Empty string insertion. Searching for prefix vs full word. Duplicate word insertion."
+  },
+  {
+    "chunk_id": "trie_interview",
+    "topic": "Trie",
+    "difficulty": "hard",
+    "type": "interview",
+    "keywords": [
+      "trie",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Trie interview tips: Great for auto-complete, spelling checkers, IP routing lookups, and prefix matches.. Practice Problems: LeetCode 208: Implement Trie (Prefix Tree), LeetCode 211: Design Add and Search Words Data Structure."
+  },
+  {
+    "chunk_id": "graphs_concept",
+    "topic": "Graphs",
+    "difficulty": "hard",
+    "type": "concept",
+    "keywords": [
+      "collection",
+      "concept",
+      "connecting",
+      "edges",
+      "graphs",
+      "intuition",
+      "nodes",
+      "pairs",
+      "vertices"
+    ],
+    "content": "Topic: Graphs. Concept: A collection of vertices (nodes) and edges connecting pairs of vertices.. Intuition: Like a social network where people are nodes and friendships are edges, or city maps with highways."
+  },
+  {
+    "chunk_id": "graphs_complexity",
+    "topic": "Graphs",
+    "difficulty": "hard",
+    "type": "complexity",
+    "keywords": [
+      "graphs",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Graphs complexities. Time Complexity: N/A. Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "graphs_mistake",
+    "topic": "Graphs",
+    "difficulty": "hard",
+    "type": "mistake",
+    "keywords": [
+      "graphs",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Graphs common mistakes & pitfalls: Infinite loops in traversal due to cycles (Must track visited nodes using a set!). Confusing directed vs undirected graph structures."
+  },
+  {
+    "chunk_id": "graphs_edge_case",
+    "topic": "Graphs",
+    "difficulty": "hard",
+    "type": "edge_case",
+    "keywords": [
+      "graphs",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Graphs edge cases: Disconnected components. Cycles. Self-loops. Empty graph."
+  },
+  {
+    "chunk_id": "graphs_interview",
+    "topic": "Graphs",
+    "difficulty": "hard",
+    "type": "interview",
+    "keywords": [
+      "graphs",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Graphs interview tips: Use BFS for shortest paths in unweighted graphs. Use DFS for topological sorting and cycle detection.. Practice Problems: LeetCode 200: Number of Islands, LeetCode 207: Course Schedule."
+  },
+  {
+    "chunk_id": "union_find_concept",
+    "topic": "Union Find",
+    "difficulty": "hard",
+    "type": "concept",
+    "keywords": [
+      "concept",
+      "data",
+      "disjoint",
+      "elements",
+      "find",
+      "into",
+      "intuition",
+      "joint",
+      "mutually",
+      "operations",
+      "partition",
+      "set",
+      "union find"
+    ],
+    "content": "Topic: Union Find. Concept: A disjoint-set data structure that tracks partition of elements into mutually joint sets, supporting Union and Find operations.. Intuition: Like tracking who belongs to which social club, allowing you to merge clubs or check if two people belong to the same club instantly."
+  },
+  {
+    "chunk_id": "union_find_complexity",
+    "topic": "Union Find",
+    "difficulty": "hard",
+    "type": "complexity",
+    "keywords": [
+      "union find",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Union Find complexities. Time Complexity: N/A. Space Complexity: N/A."
+  },
+  {
+    "chunk_id": "union_find_mistake",
+    "topic": "Union Find",
+    "difficulty": "hard",
+    "type": "mistake",
+    "keywords": [
+      "union find",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Union Find common mistakes & pitfalls: Forgetting path compression in `find()` (degrades Find performance from O(alpha(N)) to O(N)). Merging sets without updates to Rank/Size."
+  },
+  {
+    "chunk_id": "union_find_edge_case",
+    "topic": "Union Find",
+    "difficulty": "hard",
+    "type": "edge_case",
+    "keywords": [
+      "union find",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Union Find edge cases: Single element queries. Union of elements already in the same set. Skewed trees of set parents."
+  },
+  {
+    "chunk_id": "union_find_interview",
+    "topic": "Union Find",
+    "difficulty": "hard",
+    "type": "interview",
+    "keywords": [
+      "union find",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Union Find interview tips: Used in Kruskal's MST algorithm, cycle detection in undirected graphs, and social connection groups.. Practice Problems: LeetCode 547: Number of Provinces, LeetCode 684: Redundant Connection."
+  },
+  {
+    "chunk_id": "binary_search_concept",
+    "topic": "Binary Search",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "algorithm",
+      "arrays",
+      "binary search",
+      "concept",
+      "dividing",
+      "halves",
+      "intervals",
+      "intuition",
+      "repeatedly",
+      "search",
+      "sorted"
+    ],
+    "content": "Topic: Binary Search. Concept: An algorithm to search sorted arrays by repeatedly dividing search intervals in halves.. Intuition: If your target is larger than midpoint, search only the right side; else, search the left side."
+  },
+  {
+    "chunk_id": "binary_search_complexity",
+    "topic": "Binary Search",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "binary search",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Binary Search complexities. Time Complexity: O(log N). Space Complexity: O(1) iterative."
+  },
+  {
+    "chunk_id": "binary_search_mistake",
+    "topic": "Binary Search",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "binary search",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Binary Search common mistakes & pitfalls: Using `(L+R) // 2` which causes integer overflow in languages with fixed integer sizes. Use `L + (R-L) // 2`. Incorrect boundary updates (`L = Mid` or `R = Mid`, causing infinite loops)."
+  },
+  {
+    "chunk_id": "binary_search_edge_case",
+    "topic": "Binary Search",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "binary search",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Binary Search edge cases: Array of size 1. Target is not present. Duplicates in search range."
+  },
+  {
+    "chunk_id": "binary_search_interview",
+    "topic": "Binary Search",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "binary search",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Binary Search interview tips: Always check if inputs are sorted. Remember binary search can also run on values (binary search on answer).. Practice Problems: LeetCode 704: Binary Search, LeetCode 34: Find First and Last Position of Element in Sorted Array."
+  },
+  {
+    "chunk_id": "sliding_window_concept",
+    "topic": "Sliding Window",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "concept",
+      "intuition",
+      "operations",
+      "performs",
+      "right",
+      "sequence",
+      "shifting",
+      "size",
+      "sliding window",
+      "specific",
+      "technique",
+      "window"
+    ],
+    "content": "Topic: Sliding Window. Concept: A technique that performs operations on a specific window size of a sequence, shifting the window right.. Intuition: Like a security camera frame moving across a street; instead of recalculating the whole frame, you add elements entering from the right and subtract elements leaving from the left."
+  },
+  {
+    "chunk_id": "sliding_window_complexity",
+    "topic": "Sliding Window",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "sliding window",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Sliding Window complexities. Time Complexity: O(N) (each element processed at most twice: once entering, once leaving). Space Complexity: O(1) if tracking counts, O(K) if storing window elements."
+  },
+  {
+    "chunk_id": "sliding_window_mistake",
+    "topic": "Sliding Window",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "sliding window",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Sliding Window common mistakes & pitfalls: Incorrect window boundary updates. Updating metrics before resizing the window pointers."
+  },
+  {
+    "chunk_id": "sliding_window_edge_case",
+    "topic": "Sliding Window",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "sliding window",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Sliding Window edge cases: Window size larger than array length. Empty array. Window size is 1."
+  },
+  {
+    "chunk_id": "sliding_window_interview",
+    "topic": "Sliding Window",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "sliding window",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Sliding Window interview tips: Useful for subarray or substring queries matching constraint boundaries (e.g. longest substring, minimum sum subarray).. Practice Problems: LeetCode 3: Longest Substring Without Repeating Characters, LeetCode 209: Minimum Size Subarray Sum."
+  },
+  {
+    "chunk_id": "two_pointers_concept",
+    "topic": "Two Pointers",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "center",
+      "collection",
+      "concept",
+      "different",
+      "directions",
+      "ends",
+      "index",
+      "intuition",
+      "moving",
+      "often",
+      "pointers",
+      "technique",
+      "two pointers"
+    ],
+    "content": "Topic: Two Pointers. Concept: A technique using two index pointers to traverse a collection, often moving from ends toward center or in different directions.. Intuition: Like two hikers starting from opposite ends of a bridge and walking toward each other until they meet."
+  },
+  {
+    "chunk_id": "two_pointers_complexity",
+    "topic": "Two Pointers",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "two pointers",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Two Pointers complexities. Time Complexity: O(N). Space Complexity: O(1)."
+  },
+  {
+    "chunk_id": "two_pointers_mistake",
+    "topic": "Two Pointers",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "two pointers",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Two Pointers common mistakes & pitfalls: Pointers crossing each other and looping infinitely. Index out of bounds on array edges."
+  },
+  {
+    "chunk_id": "two_pointers_edge_case",
+    "topic": "Two Pointers",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "two pointers",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Two Pointers edge cases: Array size < 2. Target sum is impossible. Array with negative numbers."
+  },
+  {
+    "chunk_id": "two_pointers_interview",
+    "topic": "Two Pointers",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "two pointers",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Two Pointers interview tips: If array is sorted, Two Pointers can find target sums in linear time. Also useful for reversing sequences or in-place modifications.. Practice Problems: LeetCode 167: Two Sum II - Input Array Is Sorted, LeetCode 15: 3Sum."
+  },
+  {
+    "chunk_id": "prefix_sum_concept",
+    "topic": "Prefix Sum",
+    "difficulty": "easy",
+    "type": "concept",
+    "keywords": [
+      "allowing",
+      "array",
+      "concept",
+      "constant",
+      "converted",
+      "cumulative",
+      "into",
+      "intuition",
+      "prefix sum",
+      "preprocessing",
+      "queries",
+      "range",
+      "sum"
+    ],
+    "content": "Topic: Prefix Sum. Concept: A preprocessing technique where an array is converted into a cumulative sum array, allowing constant time range sum queries.. Intuition: Instead of recounting the cash in your wallet every time someone asks, you keep a running tally of how much you added at each step."
+  },
+  {
+    "chunk_id": "prefix_sum_complexity",
+    "topic": "Prefix Sum",
+    "difficulty": "easy",
+    "type": "complexity",
+    "keywords": [
+      "prefix sum",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Prefix Sum complexities. Time Complexity: N/A. Space Complexity: O(N) (or O(1) if modified in-place)."
+  },
+  {
+    "chunk_id": "prefix_sum_mistake",
+    "topic": "Prefix Sum",
+    "difficulty": "easy",
+    "type": "mistake",
+    "keywords": [
+      "prefix sum",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Prefix Sum common mistakes & pitfalls: Off-by-one errors (failing to insert a 0 at index 0 of prefix array, which complicates query calculations starting from index 0). Overwriting values incorrectly in mutable scenarios."
+  },
+  {
+    "chunk_id": "prefix_sum_edge_case",
+    "topic": "Prefix Sum",
+    "difficulty": "easy",
+    "type": "edge_case",
+    "keywords": [
+      "prefix sum",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Prefix Sum edge cases: Empty array. Queries targeting index 0. Array with negative numbers."
+  },
+  {
+    "chunk_id": "prefix_sum_interview",
+    "topic": "Prefix Sum",
+    "difficulty": "easy",
+    "type": "interview",
+    "keywords": [
+      "prefix sum",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Prefix Sum interview tips: Perfect for range sum queries. Also works for 2D grids (2D prefix sums).. Practice Problems: LeetCode 303: Range Sum Query - Immutable, LeetCode 560: Subarray Sum Equals K."
+  },
+  {
+    "chunk_id": "greedy_concept",
+    "topic": "Greedy",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "algorithmic",
+      "choice",
+      "concept",
+      "each",
+      "finding",
+      "global",
+      "greedy",
+      "hope",
+      "intuition",
+      "locally",
+      "makes",
+      "optimal",
+      "optimum"
+    ],
+    "content": "Topic: Greedy. Concept: An algorithmic paradigm that makes the locally optimal choice at each step with the hope of finding a global optimum.. Intuition: Taking the highest value coin available at each step to change money, which works for standard currencies but not all custom coin sets."
+  },
+  {
+    "chunk_id": "greedy_complexity",
+    "topic": "Greedy",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "greedy",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Greedy complexities. Time Complexity: O(N log N) if sorting is required, O(N) otherwise. Space Complexity: O(1) or O(N) if tracking allocations."
+  },
+  {
+    "chunk_id": "greedy_mistake",
+    "topic": "Greedy",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "greedy",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Greedy common mistakes & pitfalls: Assuming greedy choices lead to globally optimal solutions (greedy fails on fractional knapsack or general graph traversals without validation). Failing to prove greedy choice property correctness."
+  },
+  {
+    "chunk_id": "greedy_edge_case",
+    "topic": "Greedy",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "greedy",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Greedy edge cases: Empty inputs. Negative values in optimization sets. Ties in optimal local decisions."
+  },
+  {
+    "chunk_id": "greedy_interview",
+    "topic": "Greedy",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "greedy",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Greedy interview tips: Prove your greedy approach by induction or contradiction. If sorting elements by a ratio or size works, it's likely greedy.. Practice Problems: LeetCode 55: Jump Game, LeetCode 435: Non-overlapping Intervals."
+  },
+  {
+    "chunk_id": "dynamic_programming_concept",
+    "topic": "Dynamic Programming",
+    "difficulty": "hard",
+    "type": "concept",
+    "keywords": [
+      "algorithmic",
+      "breaking",
+      "complex",
+      "concept",
+      "dynamic programming",
+      "each",
+      "into",
+      "intuition",
+      "once",
+      "overlapping",
+      "problems",
+      "solutions",
+      "solves"
+    ],
+    "content": "Topic: Dynamic Programming. Concept: An algorithmic technique that solves complex problems by breaking them into overlapping subproblems, solving each subproblem once, and storing solutions.. Intuition: If I ask you what 1+1+1+1+1 is, you count to 5. If I add another '+1', you remember the '5' and add 1 to get 6. You didn't recount from scratch!"
+  },
+  {
+    "chunk_id": "dynamic_programming_complexity",
+    "topic": "Dynamic Programming",
+    "difficulty": "hard",
+    "type": "complexity",
+    "keywords": [
+      "dynamic programming",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Dynamic Programming complexities. Time Complexity: O(Number of States * Transition Time). Space Complexity: O(Number of States) (can often be optimized to O(1) space)."
+  },
+  {
+    "chunk_id": "dynamic_programming_mistake",
+    "topic": "Dynamic Programming",
+    "difficulty": "hard",
+    "type": "mistake",
+    "keywords": [
+      "dynamic programming",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Dynamic Programming common mistakes & pitfalls: Recalculating subproblems without storing values (no memoization/tabulation, leading to exponential O(2^N) time). Incorrect state transition relations."
+  },
+  {
+    "chunk_id": "dynamic_programming_edge_case",
+    "topic": "Dynamic Programming",
+    "difficulty": "hard",
+    "type": "edge_case",
+    "keywords": [
+      "dynamic programming",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Dynamic Programming edge cases: Base cases (N=0, N=1). Negative values in state tables. Memory limits in large state dimensions."
+  },
+  {
+    "chunk_id": "dynamic_programming_interview",
+    "topic": "Dynamic Programming",
+    "difficulty": "hard",
+    "type": "interview",
+    "keywords": [
+      "dynamic programming",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Dynamic Programming interview tips: Identify if the problem has 'Overlapping Subproblems' and 'Optimal Substructure'. Define the DP state table and transitions clearly.. Practice Problems: LeetCode 70: Climbing Stairs, LeetCode 322: Coin Change."
+  },
+  {
+    "chunk_id": "recursion_concept",
+    "topic": "Recursion",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "calls",
+      "concept",
+      "directly",
+      "function",
+      "indirectly",
+      "instances",
+      "intuition",
+      "itself",
+      "method",
+      "problem",
+      "programming",
+      "recursion",
+      "same"
+    ],
+    "content": "Topic: Recursion. Concept: A programming method where a function calls itself directly or indirectly to solve smaller instances of the same problem.. Intuition: Like Russian nesting dolls; you open a doll to find a smaller doll inside, until you reach the smallest doll (base case) and stop."
+  },
+  {
+    "chunk_id": "recursion_complexity",
+    "topic": "Recursion",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "recursion",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Recursion complexities. Time Complexity: O(Branches^Depth). Space Complexity: O(Depth) due to recursive call stack memory allocation."
+  },
+  {
+    "chunk_id": "recursion_mistake",
+    "topic": "Recursion",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "recursion",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Recursion common mistakes & pitfalls: Forgetting the base case, causing infinite loops and Stack Overflow errors. Failing to make progress toward base case in recursive parameters."
+  },
+  {
+    "chunk_id": "recursion_edge_case",
+    "topic": "Recursion",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "recursion",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Recursion edge cases: Inputs that trigger base case immediately. Recursive depth limits exceeded (Python default recursion limit is 1000)."
+  },
+  {
+    "chunk_id": "recursion_interview",
+    "topic": "Recursion",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "recursion",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Recursion interview tips: Always identify the base case first. Draw the recursion tree to visualize call paths and complexity.. Practice Problems: LeetCode 509: Fibonacci Number, LeetCode 206: Reverse Linked List (Recursive)."
+  },
+  {
+    "chunk_id": "backtracking_concept",
+    "topic": "Backtracking",
+    "difficulty": "hard",
+    "type": "concept",
+    "keywords": [
+      "abandons",
+      "all",
+      "backtracking",
+      "backtracks",
+      "builds",
+      "candidate",
+      "candidates",
+      "cannot",
+      "concept",
+      "intuition",
+      "lead",
+      "method",
+      "problem"
+    ],
+    "content": "Topic: Backtracking. Concept: A systematic method for searching all (or some) solutions to a problem, which builds candidates and abandons a candidate ('backtracks') as soon as it cannot lead to a valid solution.. Intuition: Like walking through a maze; when you hit a dead end, you walk back to the last intersection and try a different path."
+  },
+  {
+    "chunk_id": "backtracking_complexity",
+    "topic": "Backtracking",
+    "difficulty": "hard",
+    "type": "complexity",
+    "keywords": [
+      "backtracking",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Backtracking complexities. Time Complexity: O(N!) or O(2^N) in worst cases. Space Complexity: O(N) recursion stack."
+  },
+  {
+    "chunk_id": "backtracking_mistake",
+    "topic": "Backtracking",
+    "difficulty": "hard",
+    "type": "mistake",
+    "keywords": [
+      "backtracking",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Backtracking common mistakes & pitfalls: Forgetting to undo the choice/state change after recursive call (failing to restore variables to their original state). Failing to prune branches, leading to complete brute force search."
+  },
+  {
+    "chunk_id": "backtracking_edge_case",
+    "topic": "Backtracking",
+    "difficulty": "hard",
+    "type": "edge_case",
+    "keywords": [
+      "backtracking",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Backtracking edge cases: Target is reached immediately. Empty input sets. No valid solutions exist."
+  },
+  {
+    "chunk_id": "backtracking_interview",
+    "topic": "Backtracking",
+    "difficulty": "hard",
+    "type": "interview",
+    "keywords": [
+      "backtracking",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Backtracking interview tips: Write down the state template: 1. Base Case (check solution), 2. Loop choices, 3. Make Choice, 4. Recurse, 5. Undo Choice.. Practice Problems: LeetCode 46: Permutations, LeetCode 78: Subsets."
+  },
+  {
+    "chunk_id": "bit_manipulation_concept",
+    "topic": "Bit Manipulation",
+    "difficulty": "medium",
+    "type": "concept",
+    "keywords": [
+      "algorithmic",
+      "binary",
+      "bit manipulation",
+      "concept",
+      "directly",
+      "integers",
+      "intuition",
+      "logical",
+      "operations",
+      "performs",
+      "representation",
+      "technique"
+    ],
+    "content": "Topic: Bit Manipulation. Concept: An algorithmic technique that performs logical operations directly on the binary representation of integers.. Intuition: Directly flipping light switches (bits) on a control board instead of using complex decimal arithmetic operations."
+  },
+  {
+    "chunk_id": "bit_manipulation_complexity",
+    "topic": "Bit Manipulation",
+    "difficulty": "medium",
+    "type": "complexity",
+    "keywords": [
+      "bit manipulation",
+      "complexity",
+      "big o",
+      "time",
+      "space",
+      "bounds"
+    ],
+    "content": "Topic: Bit Manipulation complexities. Time Complexity: O(1) constant time hardware operations. Space Complexity: O(1)."
+  },
+  {
+    "chunk_id": "bit_manipulation_mistake",
+    "topic": "Bit Manipulation",
+    "difficulty": "medium",
+    "type": "mistake",
+    "keywords": [
+      "bit manipulation",
+      "mistake",
+      "pitfall",
+      "error",
+      "bug",
+      "common"
+    ],
+    "content": "Topic: Bit Manipulation common mistakes & pitfalls: Operator precedence errors (e.g. `x & 1 == 0` evaluates as `x & (1 == 0)` due to high precedence of comparison). Use parentheses: `(x & 1) == 0`. Forgetting integer bit limits (32-bit vs 64-bit systems)."
+  },
+  {
+    "chunk_id": "bit_manipulation_edge_case",
+    "topic": "Bit Manipulation",
+    "difficulty": "medium",
+    "type": "edge_case",
+    "keywords": [
+      "bit manipulation",
+      "edge",
+      "boundary",
+      "null",
+      "empty",
+      "overflow"
+    ],
+    "content": "Topic: Bit Manipulation edge cases: Zero values. Negative numbers (Two's complement representation). Overflow values."
+  },
+  {
+    "chunk_id": "bit_manipulation_interview",
+    "topic": "Bit Manipulation",
+    "difficulty": "medium",
+    "type": "interview",
+    "keywords": [
+      "bit manipulation",
+      "interview",
+      "mock",
+      "practice",
+      "problem",
+      "leetcode"
+    ],
+    "content": "Topic: Bit Manipulation interview tips: XOR property: `a ^ a = 0` and `a ^ 0 = a`. Bit shifts: `x << 1` multiplies by 2, `x >> 1` divides by 2.. Practice Problems: LeetCode 191: Number of 1 Bits, LeetCode 136: Single Number."
+  }
+]
