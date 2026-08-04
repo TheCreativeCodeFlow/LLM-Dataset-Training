@@ -3,7 +3,7 @@
   "alpha_pattern": {},
   "arrow_config": null,
   "auto_mapping": null,
-  "base_model_name_or_path": "HuggingFaceH4/tiny-random-LlamaForCausalLM",
+  "base_model_name_or_path": "microsoft/Phi-3-mini-4k-instruct",
   "bias": "none",
   "corda_config": null,
   "ensure_weight_tying": false,
@@ -31,12 +31,9 @@
   "revision": null,
   "target_modules": [
     "down_proj",
+    "qkv_proj",
     "o_proj",
-    "up_proj",
-    "v_proj",
-    "gate_proj",
-    "q_proj",
-    "k_proj"
+    "gate_up_proj"
   ],
   "target_parameters": null,
   "task_type": "CAUSAL_LM",

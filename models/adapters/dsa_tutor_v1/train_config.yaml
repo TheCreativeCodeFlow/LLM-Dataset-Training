@@ -1,6 +1,6 @@
 # configs/train_config.yaml
 model:
-  name: "HuggingFaceH4/tiny-random-LlamaForCausalLM"
+  name: "microsoft/Phi-3-mini-4k-instruct"
   torch_dtype: "bfloat16"
   attn_implementation: "eager" # use 'eager' or 'flash_attention_2' if supported by hardware
   use_cache: false
@@ -37,16 +37,14 @@ training:
   
   # Strategies
   save_strategy: "steps"
-  save_steps: 100
+  save_steps: 10
   eval_strategy: "steps"
-  eval_steps: 100
+  eval_steps: 10
   logging_strategy: "steps"
-  logging_steps: 10
-  save_total_limit: 3
-  max_steps: 3
+  logging_steps: 2
   
   # Tracking & Resume
-  load_best_model_at_end: false
+  load_best_model_at_end: true
   metric_for_best_model: "eval_loss"
   greater_is_better: false
   report_to: "none"

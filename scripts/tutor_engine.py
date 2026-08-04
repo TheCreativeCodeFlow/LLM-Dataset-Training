@@ -226,6 +226,8 @@ class SessionMemory:
         self.difficulty: str = "medium"
         self.progress: Dict[str, Any] = {}
         self.tutor_mode: str = "beginner_tutor"
+        self.tutoring_stage: int = 1
+        self.student_level: str = "Beginner"
 
 class TutorEngine:
     """Manages intent routing, safety check, and thread-safe streaming generation."""
@@ -331,6 +333,10 @@ class TutorEngine:
             
         session = self.get_or_create_session(session_id)
         
+        # Calculate active Socratic tutoring stage (Phase 7)
+        user_msg_count = len([m for m in session.messages if m["role"] == "user"])
+        session.tutoring_stage = min(5, user_msg_count + 1)
+        
         # 2. Routing (Phase 2)
         mode = force_mode if force_mode else self.route_intent(query)
         session.tutor_mode = mode
@@ -376,10 +382,38 @@ class TutorEngine:
 
         # 3. Prompt Builder (Phase 6)
         mode_instruction = SYSTEM_PROMPTS.get(mode, SYSTEM_PROMPTS["beginner_tutor"])
+        
+        # Socratic stages details (Phase 7)
+        stage_instructions = {
+            1: "STAGE 1 (Understand): Focus on understanding the student's problem. Do not provide correct code or direct answers. Ask a guiding question checking their initial thought process.",
+            2: "STAGE 2 (Guide): Ask a targeted guiding question nudging them about variables, array index bounds or pointers.",
+            3: "STAGE 3 (Hint 1): Provide a subtle conceptual hint about the algorithm. Avoid pseudocode or direct fixes.",
+            4: "STAGE 4 (Hint 2): Offer a specific algorithmic hint or pseudocode logic guideline. Still avoid code solutions.",
+            5: "STAGE 5 (Reveal): Provide a complete explanation and correct code implementation matching the topic."
+        }
+        active_stage = stage_instructions.get(session.tutoring_stage, stage_instructions[5])
+        
+        # Static Code Analysis Engine integration (Phase 6)
+        static_analysis_feedback = ""
+        if "```" in query or any(kw in query for kw in ["def ", "class ", "public ", "static ", "void ", "const ", "let "]):
+            try:
+                from scripts.code_analyst import CodeAnalyst
+                analyst = CodeAnalyst()
+                analysis_report = analyst.analyze(query)
+                static_analysis_feedback = analysis_report["tutor_feedback"]
+            except Exception as e:
+                print(f"[TutorEngine] Static analysis warning: {str(e)}")
+        
         system_prompt = (
             f"SYSTEM:\n"
             f"Persona: {mode_instruction}\n"
+            f"Active Socratic Stage: {active_stage}\n"
         )
+        if static_analysis_feedback:
+            system_prompt += (
+                f"\nSTATIC CODE DIAGNOSTICS:\n"
+                f"{static_analysis_feedback}\n"
+            )
         if retrieved_context:
             system_prompt += (
                 f"\nCONTEXT:\n"

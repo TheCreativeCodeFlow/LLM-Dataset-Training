@@ -1,0 +1,257 @@
+[
+  {
+    "query": "What is the time complexity of binary search?",
+    "topic": "Binary Search",
+    "mode": "complexity_analyst",
+    "language": "none",
+    "base": {
+      "response": "Concept & Explanation:\nBinary search is an efficient algorithm for finding an item from a sorted list of items. It works by repeatedly div",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    },
+    "peft": {
+      "response": "Structure your response under these categories:\n- Concept & Explanation",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    },
+    "rag": {
+      "response": "Concept & Explanation:\n- Think about how you would trace the algorithm steps.\n- Ask guiding questions.\n- Avoid",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    }
+  },
+  {
+    "query": "Give me a progressive hint on detecting a cycle in a linked list.",
+    "topic": "Linked List",
+    "mode": "hint_generator",
+    "language": "python",
+    "base": {
+      "response": "Concept & Explanation:\nHINT 1: Consider the properties of a linked list and how cycles can form within it. A cycle",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    },
+    "peft": {
+      "response": "Concept & Explanation: Think of a pointer that moves faster than the others. What does that imply?\n\nComplexity & Trade",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 5.5,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    },
+    "rag": {
+      "response": "Concept & Explanation:\nThink of a scavenger hunt. How do you ensure you don't go in circles?",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    }
+  },
+  {
+    "query": "Review this Python code to remove duplicates:\n```python\ndef rm(arr):\n    for x in arr: arr.remove(x)\n```",
+    "topic": "Arrays",
+    "mode": "code_reviewer",
+    "language": "python",
+    "base": {
+      "response": "Concept & Explanation:\nThe provided code snippet attempts to remove duplicates from a list by iterating over the list and removing each element.",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    },
+    "peft": {
+      "response": "STATIC CODE DIAGNOSTICS:\n**Syntax Tips**: We noticed a few styling/syntax issues: Line",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    },
+    "rag": {
+      "response": "Concept & Explanation:\n- This code has a common off-by-one error. When you remove an element, it shifts",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    }
+  },
+  {
+    "query": "Why does my recursive graph DFS loop infinitely when searching paths?",
+    "topic": "Graphs",
+    "mode": "debugging_mentor",
+    "language": "cpp",
+    "base": {
+      "response": "Concept & Explanation:\nWhen implementing a recursive DFS (Depth-First Search) for graph traversal, it's essential",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    },
+    "peft": {
+      "response": "Concept & Explanation:\nCheck if you are marking visited nodes.\n\nComplexity & Trade-offs:\nVerify",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 5.5,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    },
+    "rag": {
+      "response": "Let's analyze this step-by-step.\n- Concept & Explanation:\nCheck if you are tracking visited nodes.",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "supportive",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    }
+  },
+  {
+    "query": "Explain how AVL trees balance height after insertion.",
+    "topic": "AVL",
+    "mode": "beginner_tutor",
+    "language": "none",
+    "base": {
+      "response": "Concept & Explanation:\n\nImagine you're building a tower with blocks, and you want it to be as tall as possible",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    },
+    "peft": {
+      "response": "Concept & Explanation:\nImagine you are stacking books. If the stack gets too tall, you remove books from the top.",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    },
+    "rag": {
+      "response": "Let's trace the steps. What do you think happens if we ignore rotations?",
+      "scores": {
+        "technical_correctness": 10.0,
+        "teaching_quality": 8.0,
+        "clarity": 5.0,
+        "completeness": 4.0,
+        "hallucination": false,
+        "complexity_accuracy": true,
+        "hint_safety": true,
+        "tone": "neutral",
+        "overall_score": 9.0,
+        "failure_category": "None"
+      }
+    }
+  }
+]
